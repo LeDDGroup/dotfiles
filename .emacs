@@ -87,6 +87,7 @@
     :states '(normal visual insert emacs)
     :prefix "SPC"
     :non-normal-prefix "C-SPC"
+    "SPC" `(execute-extended-command :which-key "Run command")
     "g"  '(:ignore t :which-key "Git")
     "gs" '(magit-status :which-key "git status")
     "f"  '(:ignore t :which-key "File")
