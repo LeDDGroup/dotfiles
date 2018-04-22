@@ -87,5 +87,10 @@
     :states '(normal visual insert emacs)
     :prefix "SPC"
     :non-normal-prefix "C-SPC"
-    "g" 'magit-status
+    "g"  '(:ignore t :which-key "Git")
+    "gs" '(magit-status :which-key "git status")
+    "f"  '(:ignore t :which-key "File")
+    "fs" '(save-buffer :which-key "Save file")
+    "ff" '(find-file :which-key "Find file")
+    "ft" '(neotree :which-key "Open neotree")
     "p" 'projectile-command-map))
