@@ -135,6 +135,8 @@
   :config
   (global-diff-hl-mode))
 
+(use-package prettier-js)
+
 (use-package general
   :config
   (general-define-key
@@ -173,6 +175,7 @@
     "tm"  '(:ignore t :which-key "Mode")
     "tmc" '(company-mode :which-key "Company")
     "tmf" '(flycheck-mode :which-key "Flycheck")
+    "tmp" '(prettier-js-mode :which-key "Prettier js")
     "w"  '(:ignore t :which-key "Window")
     "wd" '(evil-window-delete :which-key "Window delete")
     "wh" '(evil-window-left :which-key "Window left")
