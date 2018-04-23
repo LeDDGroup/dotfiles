@@ -81,6 +81,11 @@
   (setq projectile-keymap-prefix (kbd "SPC p"))
   (setq projectile-completion-system 'grizzl))
 
+(use-package flycheck
+  :init
+  (global-flycheck-mode)
+  )
+
 (use-package general
   :config
   (general-define-key
@@ -94,6 +99,9 @@
     "fs" '(save-buffer :which-key "Save file")
     "ff" '(find-file :which-key "Find file")
     "ft" '(neotree :which-key "Open neotree")
+    "e"  '(:ignore t :which-key "Error")
+    "en" '(flycheck-next-error :which-key "Flycheck next error")
+    "ep" '(flycheck-previous-error :which-key "Flycheck previous error")
     "w"  '(:ignore t :which-key "Window")
     "wk" '(evil-window-up :which-key "Window up")
     "wj" '(evil-window-down :which-key "Window down")
