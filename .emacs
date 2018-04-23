@@ -111,6 +111,9 @@
     :prefix "SPC"
     :non-normal-prefix "C-SPC"
     "SPC" `(execute-extended-command :which-key "Run command")
+    "a"  '(:ignore t :which-key "Applications")
+    "ac" '(calc :which-key "Calc")
+    "ad" '(dired :which-key "Dired")
     "b"  '(:ignore t :which-key "Buffer")
     "bd" '(kill-buffer :which-key "Kill buffer")
     "bn" '(next-buffer :which-key "Next buffer")
