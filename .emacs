@@ -145,6 +145,8 @@
     "l"  '(:ignore t :which-key "Line")
     "ls" '(sort-lines :which-key "Sort lines")
     "p" 'projectile-command-map
+    "q"  '(:ignore t :which-key "Quit")
+    "qq" '(kill-emacs :which-key "Kill emacs")
     "t"  '(:ignore t :which-key "Toggle")
     "tm"  '(:ignore t :which-key "Mode")
     "tmc" '(company-mode :which-key "Company")
