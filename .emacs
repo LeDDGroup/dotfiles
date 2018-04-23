@@ -18,7 +18,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
+    (counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -89,8 +89,7 @@
 
 (use-package projectile
   :config
-  (projectile-mode)
-  (setq projectile-completion-system 'grizzl))
+  (projectile-mode))
 
 (use-package flycheck
   :config
@@ -121,6 +120,14 @@
     (ivy-mode 1)
     (setq ivy-use-virtual-buffers t)
     (setq enable-recursive-minibuffers t))
+
+(use-package counsel
+  :config
+  (counsel-mode t))
+
+(use-package counsel-projectile
+  :config
+  (counsel-projectile-mode t))
 
 (use-package general
   :config
