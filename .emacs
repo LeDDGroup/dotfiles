@@ -156,6 +156,7 @@
     "fs" '(save-buffer :which-key "Save file")
     "ft" '(neotree-toggle :which-key "Toggle neotree")
     "g"  '(:ignore t :which-key "Git")
+    "gb" '(magit-blame :which-key "git blame")
     "gs" '(magit-status :which-key "git status")
     "l"  '(:ignore t :which-key "Line")
     "ls" '(sort-lines :which-key "Sort lines")
