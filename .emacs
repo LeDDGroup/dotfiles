@@ -140,6 +140,14 @@
 
 (use-package add-node-modules-path)
 
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+
+(use-package git-timemachine)
+
+(use-package restclient)
+
 (use-package general
   :config
   (general-define-key
@@ -172,6 +180,7 @@
     "g"  '(:ignore t :which-key "Git")
     "gb" '(magit-blame :which-key "git blame")
     "gs" '(magit-status :which-key "git status")
+    "gt" '(git-timemachine :which-key "git time machine")
     "l"  '(:ignore t :which-key "Line")
     "ls" '(sort-lines :which-key "Sort lines")
     "p" 'projectile-command-map
