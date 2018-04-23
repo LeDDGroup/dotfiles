@@ -9,15 +9,16 @@
 
 (eval-when-compile
   (require 'use-package))
-; (require 'diminish)
-; (require 'bind-key)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
+ '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(package-selected-packages
+   (quote
+    (tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -29,6 +30,8 @@
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
+(setq make-backup-files nil)
+(setq auto-save-default nil)
 
 (setq initial-buffer-choice t)
 (setq initial-scratch-message nil)
@@ -86,21 +89,28 @@
   (projectile-mode)
   (setq projectile-completion-system 'grizzl))
 
-(use-package flycheck)
+(use-package flycheck
+  :config
+  (global-company-mode))
+
+(use-package company
+  :config
+  (global-company-mode))
 
 (use-package tide
+  :init
+  (defun setup-tide-mode ()
+    (interactive)
+    (tide-setup)
+    (flycheck-mode +1)
+    (setq flycheck-check-syntax-automatically '(save-mode-enabled))
+    (eldoc-mode +1)
+    (tide-hl-identifier-mode +1)
+    (company-mode +1))
   :config
-  (add-hook 'typescript-mode-hook #'setup-tide-mode)
-  )
-
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  (company-mode +1))
+  (setq company-tooltip-align-annotations t)
+  (add-hook 'before-save-hook 'tide-format-before-save)
+  (add-hook 'typescript-mode-hook #'setup-tide-mode))
 
 (defun open-scratch-buffer ()
   (interactive)
@@ -109,8 +119,6 @@
 (defun kill-current-buffer ()
   (interactive)
   (kill-buffer (current-buffer)))
-
-(use-package company)
 
 (use-package general
   :config
