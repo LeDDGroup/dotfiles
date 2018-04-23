@@ -176,6 +176,7 @@
     "eb" '(eval-buffer :which-key "Eval buffer")
     "en" '(next-error :which-key "Next error")
     "ep" '(previous-error :which-key "Previous error")
+    "el" '(flycheck-list-errors :which-key "List errors")
     "r"  '(:ignore t :which-key "Refactor")
     "rp" '(prettier-js :which-key "Prettierjs")
     "f"  '(:ignore t :which-key "File")
