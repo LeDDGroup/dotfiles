@@ -125,7 +125,7 @@
     "f"  '(:ignore t :which-key "File")
     "ff" '(find-file :which-key "Find file")
     "fs" '(save-buffer :which-key "Save file")
-    "ft" '(neotree :which-key "Open neotree")
+    "ft" '(neotree-toggle :which-key "Toggle neotree")
     "g"  '(:ignore t :which-key "Git")
     "gs" '(magit-status :which-key "git status")
     "l"  '(:ignore t :which-key "Line")
