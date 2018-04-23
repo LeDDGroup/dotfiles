@@ -18,7 +18,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
+    (ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -30,6 +30,9 @@
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
+
+(setq vc-follow-symlinks t)
+
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
@@ -112,19 +115,6 @@
   (add-hook 'before-save-hook 'tide-format-before-save)
   (add-hook 'typescript-mode-hook #'setup-tide-mode))
 
-(defun open-scratch-buffer ()
-  (interactive)
-  (switch-to-buffer "scratch"))
-
-(defun kill-current-buffer ()
-  (interactive)
-  (kill-buffer (current-buffer)))
-
-(defun edit-config ()
-  "Edit .emacs"
-  (interactive)
-  (find-file user-init-file))
-
 (use-package general
   :config
   (general-define-key
@@ -169,3 +159,16 @@
     "wv" '(evil-window-vsplit :which-key "Window vertical split")
     )
   )
+
+(defun open-scratch-buffer ()
+  (interactive)
+  (switch-to-buffer "scratch"))
+
+(defun kill-current-buffer ()
+  (interactive)
+  (kill-buffer (current-buffer)))
+
+(defun edit-config ()
+  "Edit .emacs"
+  (interactive)
+  (find-file user-init-file))
