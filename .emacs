@@ -106,6 +106,10 @@
   (interactive)
   (switch-to-buffer "scratch"))
 
+(defun kill-current-buffer ()
+  (interactive)
+  (kill-buffer (current-buffer)))
+
 (use-package company)
 
 (use-package general
@@ -119,7 +123,7 @@
     "ac" '(calc :which-key "Calc")
     "ad" '(dired :which-key "Dired")
     "b"  '(:ignore t :which-key "Buffer")
-    "bd" '(kill-buffer :which-key "Kill buffer")
+    "bd" '(kill-current-buffer :which-key "Kill buffer")
     "bn" '(next-buffer :which-key "Next buffer")
     "bp" '(previous-buffer :which-key "Previous buffer")
     "bs" '(open-scratch-buffer :which-key "Scratch buffer")
