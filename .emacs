@@ -120,6 +120,11 @@
   (interactive)
   (kill-buffer (current-buffer)))
 
+(defun edit-config ()
+  "Edit config.org"
+  (interactive)
+  (find-file "~/.emacs"))
+
 (use-package general
   :config
   (general-define-key
@@ -140,6 +145,8 @@
     "en" '(next-error :which-key "Next error")
     "ep" '(previous-error :which-key "Previous error")
     "f"  '(:ignore t :which-key "File")
+    "fe"  '(:ignore t :which-key "Emacs")
+    "fed" '(edit-config :which-key "Config File")
     "ff" '(find-file :which-key "Find file")
     "fs" '(save-buffer :which-key "Save file")
     "ft" '(neotree-toggle :which-key "Toggle neotree")
