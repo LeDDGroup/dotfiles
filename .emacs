@@ -98,6 +98,8 @@
     "fs" '(save-buffer :which-key "Save file")
     "ff" '(find-file :which-key "Find file")
     "ft" '(neotree :which-key "Open neotree")
+    "b"  '(:ignore t :which-key "Buffer")
+    "bd" '(kill-buffer :which-key "Kill buffer")
     "e"  '(:ignore t :which-key "Error")
     "en" '(flycheck-next-error :which-key "Flycheck next error")
     "ep" '(flycheck-previous-error :which-key "Flycheck previous error")
