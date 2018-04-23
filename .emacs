@@ -18,7 +18,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
+    (benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -45,6 +45,10 @@
 
 (setq use-package-always-ensure t)
 
+(use-package benchmark-init
+  :config
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
+
 (use-package ag)
 
 (use-package nlinum
@@ -60,6 +64,7 @@
   (evil-mode 1))
 
 (use-package magit
+  :commands magit-status
   :config
   (setq magit-status-buffer-switch-function 'switch-to-buffer)
   (defun display-buffer-full-screen (buffer alist)
@@ -74,7 +79,8 @@
 	    (display-buffer buffer '(display-buffer-full-screen)))))
   )
 
-(use-package evil-magit)
+(use-package evil-magit
+  :after (magit))
 
 (use-package golden-ratio
   :config
@@ -115,6 +121,8 @@
   (global-company-mode))
 
 (use-package tide
+  :mode ("\\.ts\\'" . typescript-mode)
+  :interpreter ("typescript" . typescript-mode)
   :init
   (defun setup-tide-mode ()
     (interactive)
@@ -201,6 +209,8 @@
     "wv" '(evil-window-vsplit :which-key "Window vertical split")
     )
   )
+
+(use-package add-node-modules-path)
 
 (defun open-scratch-buffer ()
   (interactive)
