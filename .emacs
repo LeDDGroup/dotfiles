@@ -85,6 +85,8 @@
   (global-flycheck-mode)
   )
 
+(use-package company)
+
 (use-package general
   :config
   (general-define-key
