@@ -26,9 +26,9 @@
  ;; If there is more than one, they won't work right.
  )
 
-(menu-bar-mode -1) 
-(toggle-scroll-bar -1) 
-(tool-bar-mode -1) 
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
 
 (setq initial-buffer-choice t)
 (setq initial-scratch-message nil)
@@ -77,8 +77,7 @@
 
 (use-package projectile
   :config
-  (projectile-global-mode)
-  (setq projectile-keymap-prefix (kbd "SPC p"))
+  (projectile-mode)
   (setq projectile-completion-system 'grizzl))
 
 (use-package flycheck
