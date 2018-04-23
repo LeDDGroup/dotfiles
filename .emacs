@@ -121,8 +121,7 @@
   (global-company-mode))
 
 (use-package tide
-  :mode ("\\.ts\\'" . typescript-mode)
-  :interpreter ("typescript" . typescript-mode)
+  :defer 5
   :init
   (defun setup-tide-mode ()
     (interactive)
