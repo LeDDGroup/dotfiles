@@ -1,4 +1,7 @@
+;;; package --- Summary
+;;; Commentary:
 (require 'package)
+;;; Code:
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
@@ -201,4 +204,6 @@
 
 (use-package add-node-modules-path)
 
-(load-file "~/.emacs.d/core.el")
+(add-to-list 'load-path "~/.emacs.d/layers")
+(require 'core)
+;;; .emacs ends here
