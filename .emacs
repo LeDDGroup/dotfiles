@@ -101,6 +101,8 @@
     "b"  '(:ignore t :which-key "Buffer")
     "bd" '(kill-buffer :which-key "Kill buffer")
     "e"  '(:ignore t :which-key "Error")
+    "bn" '(next-buffer :which-key "Next buffer")
+    "bp" '(previous-buffer :which-key "Previous buffer")
     "en" '(flycheck-next-error :which-key "Flycheck next error")
     "ep" '(flycheck-previous-error :which-key "Flycheck previous error")
     "eb" '(eval-buffer :which-key "Eval buffer")
