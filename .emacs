@@ -103,6 +103,7 @@
     "e"  '(:ignore t :which-key "Error")
     "en" '(flycheck-next-error :which-key "Flycheck next error")
     "ep" '(flycheck-previous-error :which-key "Flycheck previous error")
+    "eb" '(eval-buffer :which-key "Eval buffer")
     "w"  '(:ignore t :which-key "Window")
     "wk" '(evil-window-up :which-key "Window up")
     "wj" '(evil-window-down :which-key "Window down")
