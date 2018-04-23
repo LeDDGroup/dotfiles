@@ -31,8 +31,11 @@
  )
 
 (menu-bar-mode -1)
-(toggle-scroll-bar -1)
+(scroll-bar-mode -1)
 (tool-bar-mode -1)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+(setq ring-bell-function 'ignore)
 
 (setq vc-follow-symlinks t)
 
@@ -82,6 +85,7 @@
 
 (use-package neotree
   :config
+  (setq neo-smart-open t)
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
   (evil-define-key 'normal neotree-mode-map (kbd "'") 'neotree-quick-look)
   (evil-define-key 'normal neotree-mode-map (kbd "C") 'neotree-copy-node)
@@ -116,6 +120,7 @@
     :ensure t
     :config
     (ivy-mode 1)
+    (setq ivy-initial-inputs-alist nil)
     (setq ivy-use-virtual-buffers t)
     (setq enable-recursive-minibuffers t))
 
@@ -133,9 +138,7 @@
 
 (use-package prettier-js)
 
-(add-to-list 'load-path "~/.emacs.d/layers")
-(require 'core)
-(require 'typescript-layer)
+(use-package add-node-modules-path)
 
 (use-package general
   :config
@@ -190,5 +193,8 @@
     )
   )
 
-(use-package add-node-modules-path)
+(add-to-list 'load-path "~/.emacs.d/layers")
+(require 'core)
+(require 'typescript-layer)
+
 ;;; .emacs ends here
