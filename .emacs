@@ -68,7 +68,7 @@
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
   (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
   (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
-  (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
+  (evil-define-key 'normal neotree-mode-map (kbd "'") 'neotree-quick-look)
   (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-stretch-toggle)
   (evil-define-key 'normal neotree-mode-map (kbd "d") 'neotree-change-root)
   (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
