@@ -86,9 +86,7 @@
   (projectile-mode)
   (setq projectile-completion-system 'grizzl))
 
-(use-package flycheck
-  :init
-  (global-flycheck-mode)
+(use-package flycheck)
 
 (use-package tide
   :config
