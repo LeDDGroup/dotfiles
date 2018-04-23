@@ -121,9 +121,9 @@
   (kill-buffer (current-buffer)))
 
 (defun edit-config ()
-  "Edit config.org"
+  "Edit .emacs"
   (interactive)
-  (find-file "~/.emacs"))
+  (find-file user-init-file))
 
 (use-package general
   :config
