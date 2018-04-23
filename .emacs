@@ -102,6 +102,10 @@
   (tide-hl-identifier-mode +1)
   (company-mode +1))
 
+(defun open-scratch-buffer ()
+  (interactive)
+  (switch-to-buffer "scratch"))
+
 (use-package company)
 
 (use-package general
@@ -118,6 +122,7 @@
     "bd" '(kill-buffer :which-key "Kill buffer")
     "bn" '(next-buffer :which-key "Next buffer")
     "bp" '(previous-buffer :which-key "Previous buffer")
+    "bs" '(open-scratch-buffer :which-key "Scratch buffer")
     "e"  '(:ignore t :which-key "Error")
     "eb" '(eval-buffer :which-key "Eval buffer")
     "en" '(next-error :which-key "Next error")
