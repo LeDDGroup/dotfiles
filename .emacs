@@ -9,8 +9,6 @@
 
 (eval-when-compile
   (require 'use-package))
-; (require 'diminish)
-; (require 'bind-key)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -29,9 +27,12 @@
  ;; If there is more than one, they won't work right.
  )
 
-(menu-bar-mode -1) 
-(toggle-scroll-bar -1) 
-(tool-bar-mode -1) 
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+
+(setq make-backup-files nil)
+(setq auto-save-default nil)
 
 (setq initial-buffer-choice t)
 (setq initial-scratch-message nil)
@@ -88,18 +89,16 @@
   :config
   (global-company-mode))
 
-;; from the Tide README
-(defun setup-tide-mode ()
-  "Set up Tide mode."
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save-mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  (company-mode +1))
-
 (use-package tide
+  :init
+  (defun setup-tide-mode ()
+    (interactive)
+    (tide-setup)
+    (flycheck-mode +1)
+    (setq flycheck-check-syntax-automatically '(save-mode-enabled))
+    (eldoc-mode +1)
+    (tide-hl-identifier-mode +1)
+    (company-mode +1))
   :config
   (setq company-tooltip-align-annotations t)
   (add-hook 'before-save-hook 'tide-format-before-save)
@@ -108,22 +107,22 @@
 (use-package general
   :config
   (general-define-key
-    :states '(normal visual insert emacs)
-    :prefix "SPC"
-    :non-normal-prefix "C-SPC"
-    "SPC" `(execute-extended-command :which-key "Run command")
-    "g"  '(:ignore t :which-key "Git")
-    "gs" '(magit-status :which-key "git status")
-    "f"  '(:ignore t :which-key "File")
-    "fs" '(save-buffer :which-key "Save file")
-    "ff" '(find-file :which-key "Find file")
-    "ft" '(neotree :which-key "Open neotree")
-    "w"  '(:ignore t :which-key "Window")
-    "wk" '(evil-window-up :which-key "Window up")
-    "wj" '(evil-window-down :which-key "Window down")
-    "wl" '(evil-window-right :which-key "Window right")
-    "wh" '(evil-window-left :which-key "Window left")
-    "ws" '(evil-window-split :which-key "Window horizontal split")
-    "wv" '(evil-window-vsplit :which-key "Window vertical split")
-    "wd" '(evil-window-delete :which-key "Window delete")
-    "p" 'projectile-command-map))
+   :states '(normal visual insert emacs)
+   :prefix "SPC"
+   :non-normal-prefix "C-SPC"
+   "SPC" `(execute-extended-command :which-key "Run command")
+   "g"  '(:ignore t :which-key "Git")
+   "gs" '(magit-status :which-key "git status")
+   "f"  '(:ignore t :which-key "File")
+   "fs" '(save-buffer :which-key "Save file")
+   "ff" '(find-file :which-key "Find file")
+   "ft" '(neotree :which-key "Open neotree")
+   "w"  '(:ignore t :which-key "Window")
+   "wk" '(evil-window-up :which-key "Window up")
+   "wj" '(evil-window-down :which-key "Window down")
+   "wl" '(evil-window-right :which-key "Window right")
+   "wh" '(evil-window-left :which-key "Window left")
+   "ws" '(evil-window-split :which-key "Window horizontal split")
+   "wv" '(evil-window-vsplit :which-key "Window vertical split")
+   "wd" '(evil-window-delete :which-key "Window delete")
+   "p" 'projectile-command-map))
