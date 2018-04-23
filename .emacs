@@ -114,7 +114,7 @@
 
 (use-package flycheck
   :config
-  (global-company-mode))
+  (global-flycheck-mode))
 
 (use-package company
   :config
