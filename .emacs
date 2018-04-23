@@ -59,7 +59,20 @@
   :config
   (evil-mode 1))
 
-(use-package magit)
+(use-package magit
+  :config
+  (setq magit-status-buffer-switch-function 'switch-to-buffer)
+  (defun display-buffer-full-screen (buffer alist)
+    (delete-other-windows)
+    (set-window-dedicated-p nil nil)
+    (set-window-buffer nil buffer)
+    (get-buffer-window buffer))
+  (setq magit-display-buffer-function
+	(lambda (buffer)
+	  (if magit-display-buffer-noselect
+	      (magit-display-buffer-traditional buffer)
+	    (display-buffer buffer '(display-buffer-full-screen)))))
+  )
 
 (use-package evil-magit)
 
