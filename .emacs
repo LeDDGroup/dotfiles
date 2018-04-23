@@ -131,6 +131,10 @@
   :config
   (counsel-projectile-mode t))
 
+(use-package diff-hl
+  :config
+  (global-diff-hl-mode))
+
 (use-package general
   :config
   (general-define-key
