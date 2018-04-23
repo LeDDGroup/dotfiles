@@ -131,6 +131,10 @@
     "l"  '(:ignore t :which-key "Line")
     "ls" '(sort-lines :which-key "Sort lines")
     "p" 'projectile-command-map
+    "t"  '(:ignore t :which-key "Toggle")
+    "tm"  '(:ignore t :which-key "Mode")
+    "tmc" '(company-mode :which-key "Company")
+    "tmf" '(flycheck-mode :which-key "Flycheck")
     "w"  '(:ignore t :which-key "Window")
     "wd" '(evil-window-delete :which-key "Window delete")
     "wh" '(evil-window-left :which-key "Window left")
