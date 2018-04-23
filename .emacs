@@ -72,6 +72,8 @@
   (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-stretch-toggle)
   (evil-define-key 'normal neotree-mode-map (kbd "d") 'neotree-change-root)
   (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+  (evil-define-key 'normal neotree-mode-map (kbd "r") 'neotree-rename-node)
+  (evil-define-key 'normal neotree-mode-map (kbd "x") 'neotree-delete-node)
   (evil-define-key 'normal neotree-mode-map (kbd "y") 'neotree-copy-filepath-to-yank-ring)
   )
 
