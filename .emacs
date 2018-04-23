@@ -164,6 +164,8 @@
     "eb" '(eval-buffer :which-key "Eval buffer")
     "en" '(next-error :which-key "Next error")
     "ep" '(previous-error :which-key "Previous error")
+    "r"  '(:ignore t :which-key "Refactor")
+    "rp" '(prettier-js :which-key "Prettierjs")
     "f"  '(:ignore t :which-key "File")
     "fe"  '(:ignore t :which-key "Emacs")
     "fed" '(edit-config :which-key "Config File")
