@@ -73,11 +73,11 @@
   :config
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
   (evil-define-key 'normal neotree-mode-map (kbd "'") 'neotree-quick-look)
-  (evil-define-key 'normal neotree-mode-map (kbd "C") 'neotree-create-node)
+  (evil-define-key 'normal neotree-mode-map (kbd "C") 'neotree-copy-node)
   (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
   (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
   (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-stretch-toggle)
-  (evil-define-key 'normal neotree-mode-map (kbd "c") 'neotree-copy-node)
+  (evil-define-key 'normal neotree-mode-map (kbd "c") 'neotree-create-node)
   (evil-define-key 'normal neotree-mode-map (kbd "d") 'neotree-change-root)
   (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
   (evil-define-key 'normal neotree-mode-map (kbd "r") 'neotree-rename-node)
