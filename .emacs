@@ -121,7 +121,7 @@
   (global-company-mode))
 
 (use-package tide
-  :defer 5
+  :hook (typescript-mode . setup-tide-mode)
   :init
   (defun setup-tide-mode ()
     (interactive)
@@ -133,8 +133,7 @@
     (company-mode +1))
   :config
   (setq company-tooltip-align-annotations t)
-  (add-hook 'before-save-hook 'tide-format-before-save)
-  (add-hook 'typescript-mode-hook #'setup-tide-mode))
+  (add-hook 'before-save-hook 'tide-format-before-save))
 
 (use-package ivy
     :ensure t
