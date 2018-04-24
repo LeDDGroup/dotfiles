@@ -123,6 +123,7 @@
   (projectile-mode))
 
 (use-package flycheck
+  :diminish
   :config
   (global-company-mode))
 
@@ -132,6 +133,7 @@
   (global-company-mode))
 
 (use-package tide
+  :diminish
   :hook (typescript-mode . setup-tide-mode)
   :init
   (defun setup-tide-mode ()
