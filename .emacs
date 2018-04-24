@@ -21,7 +21,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
+    (restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -46,7 +46,6 @@
 (setq initial-scratch-message nil)
 
 (setq evil-want-C-u-scroll t)
-
 
 (setq use-package-always-ensure t)
 
@@ -158,7 +157,7 @@
   (exec-path-from-shell-initialize))
 
 (use-package git-timemachine
-  :hook (prog-mode . magit-mode)
+  :hook (prog-mode magit-mode)
   :after (magit))
 
 (use-package restclient)
