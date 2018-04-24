@@ -72,8 +72,7 @@
 (use-package magit
   :commands magit-status
   :config
-  (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
-  )
+  (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
 
 (use-package evil-magit
   :after (magit))
@@ -157,7 +156,7 @@
   (exec-path-from-shell-initialize))
 
 (use-package git-timemachine
-  :hook (prog-mode magit-mode)
+  :commands (git-timemachine)
   :after (magit))
 
 (use-package restclient)
