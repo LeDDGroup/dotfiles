@@ -164,6 +164,10 @@
 (use-package general
   :config
   (general-define-key
+   :keymaps 'ivy-minibuffer-map
+   "C-j" 'ivy-next-line
+   "C-k" 'ivy-previous-line)
+  (general-define-key
    :states '(normal visual insert emacs)
    :prefix "SPC"
    :non-normal-prefix "C-SPC"
