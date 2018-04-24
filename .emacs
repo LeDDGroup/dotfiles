@@ -158,7 +158,8 @@
   (exec-path-from-shell-initialize))
 
 (use-package git-timemachine
-  :hook (prog-mode . magit-mode))
+  :hook (prog-mode . magit-mode)
+  :after (magit))
 
 (use-package restclient)
 
