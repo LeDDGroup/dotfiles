@@ -222,6 +222,7 @@
    "wl" '(evil-window-right :which-key "Window right")
    "ws" '(evil-window-split :which-key "Window horizontal split")
    "wv" '(evil-window-vsplit :which-key "Window vertical split")
+   ";" '(comment-line :which-key "Comment line/lines")
    )
   )
 
