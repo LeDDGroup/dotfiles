@@ -18,7 +18,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
+    (diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -51,6 +51,8 @@
 
 (use-package ag)
 
+(use-package diminish)
+
 (use-package nlinum
   :config
   (global-nlinum-mode 1))
@@ -82,6 +84,7 @@
   :after (magit))
 
 (use-package golden-ratio
+  :diminish
   :config
   (setq golden-ratio-extra-commands
 	(append golden-ratio-extra-commands
@@ -114,6 +117,7 @@
   (load-theme 'zenburn t))
 
 (use-package projectile
+  :diminish
   :config
   (setq projectile-completion-system 'ivy)
   (projectile-mode))
@@ -123,6 +127,7 @@
   (global-company-mode))
 
 (use-package company
+  :diminish
   :config
   (global-company-mode))
 
@@ -142,6 +147,7 @@
   (add-hook 'before-save-hook 'tide-format-before-save))
 
 (use-package ivy
+  :diminish
   :ensure t
   :config
   (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
@@ -150,6 +156,7 @@
   (setq enable-recursive-minibuffers t))
 
 (use-package counsel
+  :diminish
   :config
   (counsel-mode t))
 
