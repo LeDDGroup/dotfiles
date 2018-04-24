@@ -21,7 +21,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
+    (diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -57,6 +57,8 @@
 
 (use-package ag)
 
+(use-package diminish)
+
 (use-package nlinum
   :config
   (global-nlinum-mode 1))
@@ -70,6 +72,7 @@
   (evil-mode 1))
 
 (use-package magit
+  :commands magit-status
   :config
   (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
   )
@@ -78,7 +81,14 @@
   :after (magit))
 
 (use-package golden-ratio
+  :diminish
   :config
+  (setq golden-ratio-extra-commands
+	(append golden-ratio-extra-commands
+		'(evil-window-left
+		  evil-window-right
+		  evil-window-up
+		  evil-window-down)))
   (golden-ratio-mode 1))
 
 (use-package all-the-icons)
@@ -105,26 +115,32 @@
   (load-theme 'zenburn t))
 
 (use-package projectile
+  :diminish
   :config
+  (setq projectile-completion-system 'ivy)
   (projectile-mode))
 
 (use-package flycheck
+  :diminish
   :config
   (global-flycheck-mode))
 
 (use-package company
+  :diminish
   :config
   (global-company-mode))
 
 (use-package ivy
-    :ensure t
-    :config
-    (ivy-mode 1)
-    (setq ivy-initial-inputs-alist nil)
-    (setq ivy-use-virtual-buffers t)
-    (setq enable-recursive-minibuffers t))
+  :diminish
+  :ensure t
+  :config
+  (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t))
 
 (use-package counsel
+  :diminish
   :config
   (counsel-mode t))
 
@@ -171,6 +187,7 @@
     "f"  '(:ignore t :which-key "File")
     "fe"  '(:ignore t :which-key "Emacs")
     "fed" '(edit-config :which-key "Config File")
+    "fer" '(reload-config :which-key "Config File")
     "ff" '(find-file :which-key "Find file")
     "fp" '(neotree-projectile-action :which-key "Neotree project")
     "fs" '(save-buffer :which-key "Save file")
@@ -199,7 +216,7 @@
     "wl" '(evil-window-right :which-key "Window right")
     "ws" '(evil-window-split :which-key "Window horizontal split")
     "wv" '(evil-window-vsplit :which-key "Window vertical split")
-    )
+   )
   )
 
 (add-to-list 'load-path "~/.emacs.d/layers")

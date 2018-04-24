@@ -3,6 +3,8 @@
 ;;; typescript-layer.el
 ;;; Code:
 (use-package tide
+  :diminish
+  :hook (typescript-mode . setup-tide-mode)
   :init
   (defun setup-tide-mode ()
     (interactive)
@@ -15,7 +17,7 @@
   :config
   (setq company-tooltip-align-annotations t)
   (add-hook 'before-save-hook 'tide-format-before-save)
-  (add-hook 'typescript-mode-hook #'setup-tide-mode))
+  )
 
 (provide 'typescript-layer)
 ;;; typescript-layer.el ends here

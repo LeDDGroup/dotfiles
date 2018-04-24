@@ -12,6 +12,11 @@
   (interactive)
   (kill-buffer (current-buffer)))
 
+(defun reload-config ()
+  "Reload .emacs"
+  (interactive)
+  (load-file user-init-file))
+
 (defun edit-config ()
   "Open 'user-init-file'."
   (interactive)
