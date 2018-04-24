@@ -110,6 +110,7 @@
 
 (use-package projectile
   :config
+  (setq projectile-completion-system 'ivy)
   (projectile-mode))
 
 (use-package flycheck
@@ -136,11 +137,12 @@
   (add-hook 'before-save-hook 'tide-format-before-save))
 
 (use-package ivy
-    :ensure t
-    :config
-    (ivy-mode 1)
-    (setq ivy-use-virtual-buffers t)
-    (setq enable-recursive-minibuffers t))
+  :ensure t
+  :config
+  (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t))
 
 (use-package counsel
   :config
