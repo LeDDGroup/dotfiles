@@ -227,6 +227,9 @@
    )
   )
 
+(setq-default evil-escape-key-sequence "fd")
+(evil-escape-mode)
+
 (add-to-list 'load-path "~/.emacs.d/layers")
 (require 'core)
 (require 'typescript-layer)
