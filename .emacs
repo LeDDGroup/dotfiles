@@ -121,14 +121,14 @@
   (projectile-mode))
 
 (use-package flycheck
+  :hook (prog-mode . flycheck-mode)
   :diminish
-  :config
-  (global-flycheck-mode))
+  )
 
 (use-package company
+  :hook (prog-mode . company-mode)
   :diminish
-  :config
-  (global-company-mode))
+  )
 
 (use-package ivy
   :diminish
