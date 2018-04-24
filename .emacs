@@ -76,14 +76,19 @@
 	(lambda (buffer)
 	  (if magit-display-buffer-noselect
 	      (magit-display-buffer-traditional buffer)
-	    (display-buffer buffer '(display-buffer-full-screen)))))
-  )
+	    (display-buffer buffer '(display-buffer-full-screen))))))
 
 (use-package evil-magit
   :after (magit))
 
 (use-package golden-ratio
   :config
+  (setq golden-ratio-extra-commands
+	(append golden-ratio-extra-commands
+		'(evil-window-left
+		  evil-window-right
+		  evil-window-up
+		  evil-window-down)))
   (golden-ratio-mode 1))
 
 (use-package all-the-icons)
@@ -161,56 +166,55 @@
 (use-package general
   :config
   (general-define-key
-    :states '(normal visual insert emacs)
-    :prefix "SPC"
-    :non-normal-prefix "C-SPC"
-    "SPC" `(execute-extended-command :which-key "Run command")
-    "a"  '(:ignore t :which-key "Applications")
-    "ac" '(calc :which-key "Calc")
-    "ad" '(dired :which-key "Dired")
-    "b"  '(:ignore t :which-key "Buffer")
-    "bd" '(kill-current-buffer :which-key "Kill buffer")
-    "bn" '(next-buffer :which-key "Next buffer")
-    "bp" '(previous-buffer :which-key "Previous buffer")
-    "bs" '(open-scratch-buffer :which-key "Scratch buffer")
-    "e"  '(:ignore t :which-key "Error")
-    "eb" '(eval-buffer :which-key "Eval buffer")
-    "en" '(next-error :which-key "Next error")
-    "ep" '(previous-error :which-key "Previous error")
-    "el" '(flycheck-list-errors :which-key "List errors")
-    "r"  '(:ignore t :which-key "Refactor")
-    "rp" '(prettier-js :which-key "Prettierjs")
-    "f"  '(:ignore t :which-key "File")
-    "fe"  '(:ignore t :which-key "Emacs")
-    "fed" '(edit-config :which-key "Config File")
-    "fer" '(reload-config :which-key "Config File")
-    "ff" '(find-file :which-key "Find file")
-    "fp" '(neotree-projectile-action :which-key "Neotree project")
-    "fs" '(save-buffer :which-key "Save file")
-    "ft" '(neotree-toggle :which-key "Toggle neotree")
-    "g"  '(:ignore t :which-key "Git")
-    "gb" '(magit-blame :which-key "git blame")
-    "gs" '(magit-status :which-key "git status")
-    "l"  '(:ignore t :which-key "Line")
-    "ls" '(sort-lines :which-key "Sort lines")
-    "p" 'projectile-command-map
-    "q"  '(:ignore t :which-key "Quit")
-    "qq" '(kill-emacs :which-key "Kill emacs")
-    "t"  '(:ignore t :which-key "Toggle")
-    "tm"  '(:ignore t :which-key "Mode")
-    "tmc" '(company-mode :which-key "Company")
-    "tmf" '(flycheck-mode :which-key "Flycheck")
-    "tmp" '(prettier-js-mode :which-key "Prettier js")
-    "w"  '(:ignore t :which-key "Window")
-    "wd" '(evil-window-delete :which-key "Window delete")
-    "wh" '(evil-window-left :which-key "Window left")
-    "wj" '(evil-window-down :which-key "Window down")
-    "wk" '(evil-window-up :which-key "Window up")
-    "wl" '(evil-window-right :which-key "Window right")
-    "ws" '(evil-window-split :which-key "Window horizontal split")
-    "wv" '(evil-window-vsplit :which-key "Window vertical split")
-    )
-  )
+   :states '(normal visual insert emacs)
+   :prefix "SPC"
+   :non-normal-prefix "C-SPC"
+   "SPC" `(execute-extended-command :which-key "Run command")
+   "a"  '(:ignore t :which-key "Applications")
+   "ac" '(calc :which-key "Calc")
+   "ad" '(dired :which-key "Dired")
+   "b"  '(:ignore t :which-key "Buffer")
+   "bd" '(kill-current-buffer :which-key "Kill buffer")
+   "bn" '(next-buffer :which-key "Next buffer")
+   "bp" '(previous-buffer :which-key "Previous buffer")
+   "bs" '(open-scratch-buffer :which-key "Scratch buffer")
+   "e"  '(:ignore t :which-key "Error")
+   "eb" '(eval-buffer :which-key "Eval buffer")
+   "en" '(next-error :which-key "Next error")
+   "ep" '(previous-error :which-key "Previous error")
+   "el" '(flycheck-list-errors :which-key "List errors")
+   "r"  '(:ignore t :which-key "Refactor")
+   "rp" '(prettier-js :which-key "Prettierjs")
+   "f"  '(:ignore t :which-key "File")
+   "fe"  '(:ignore t :which-key "Emacs")
+   "fed" '(edit-config :which-key "Config File")
+   "fer" '(reload-config :which-key "Config File")
+   "ff" '(find-file :which-key "Find file")
+   "fp" '(neotree-projectile-action :which-key "Neotree project")
+   "fs" '(save-buffer :which-key "Save file")
+   "ft" '(neotree-toggle :which-key "Toggle neotree")
+   "g"  '(:ignore t :which-key "Git")
+   "gb" '(magit-blame :which-key "git blame")
+   "gs" '(magit-status :which-key "git status")
+   "l"  '(:ignore t :which-key "Line")
+   "ls" '(sort-lines :which-key "Sort lines")
+   "p" 'projectile-command-map
+   "q"  '(:ignore t :which-key "Quit")
+   "qq" '(kill-emacs :which-key "Kill emacs")
+   "t"  '(:ignore t :which-key "Toggle")
+   "tm"  '(:ignore t :which-key "Mode")
+   "tmc" '(company-mode :which-key "Company")
+   "tmf" '(flycheck-mode :which-key "Flycheck")
+   "tmp" '(prettier-js-mode :which-key "Prettier js")
+   "w"  '(:ignore t :which-key "Window")
+   "wd" '(evil-window-delete :which-key "Window delete")
+   "wh" '(evil-window-left :which-key "Window left")
+   "wj" '(evil-window-down :which-key "Window down")
+   "wk" '(evil-window-up :which-key "Window up")
+   "wl" '(evil-window-right :which-key "Window right")
+   "ws" '(evil-window-split :which-key "Window horizontal split")
+   "wv" '(evil-window-vsplit :which-key "Window vertical split")
+   ))
 
 (use-package add-node-modules-path)
 
