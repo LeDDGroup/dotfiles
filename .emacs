@@ -181,6 +181,7 @@
     "f"  '(:ignore t :which-key "File")
     "fe"  '(:ignore t :which-key "Emacs")
     "fed" '(edit-config :which-key "Config File")
+    "fer" '(reload-config :which-key "Config File")
     "ff" '(find-file :which-key "Find file")
     "fp" '(neotree-projectile-action :which-key "Neotree project")
     "fs" '(save-buffer :which-key "Save file")
