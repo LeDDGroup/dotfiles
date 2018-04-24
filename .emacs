@@ -120,14 +120,12 @@
   (projectile-mode))
 
 (use-package flycheck
-  :hook (prog-mode . flycheck-mode)
   :diminish
-  )
+  :hook (prog-mode . flycheck-mode))
 
 (use-package company
-  :hook (prog-mode . company-mode)
   :diminish
-  )
+  :hook (prog-mode . company-mode))
 
 (use-package ivy
   :diminish
@@ -159,7 +157,8 @@
   :config
   (exec-path-from-shell-initialize))
 
-(use-package git-timemachine)
+(use-package git-timemachine
+  :hook (prog-mode . magit-mode))
 
 (use-package restclient)
 
