@@ -228,6 +228,7 @@
   )
 
 (setq-default evil-escape-key-sequence "fd")
+(setq-default evil-escape-delay 0.1)
 (evil-escape-mode)
 
 (add-to-list 'load-path "~/.emacs.d/layers")
