@@ -172,6 +172,7 @@
    :prefix "SPC"
    :non-normal-prefix "C-SPC"
    "SPC" `(execute-extended-command :which-key "Run command")
+   ":" 'evil-ex
    "a"  '(:ignore t :which-key "Applications")
    "ac" '(calc :which-key "Calc")
    "ad" '(dired :which-key "Dired")
@@ -180,10 +181,6 @@
    "bn" '(next-buffer :which-key "Next buffer")
    "bp" '(previous-buffer :which-key "Previous buffer")
    "bs" '(open-scratch-buffer :which-key "Scratch buffer")
-   "d" '(:ignore t :which-key "Describe")
-   "dk" 'describe-key
-   "df" 'describe-function
-   "dv" 'describe-variable
    "e"  '(:ignore t :which-key "Error")
    "eb" '(eval-buffer :which-key "Eval buffer")
    "el" '(flycheck-list-errors :which-key "List errors")
@@ -201,6 +198,15 @@
    "gb" '(magit-blame :which-key "git blame")
    "gs" '(magit-status :which-key "git status")
    "gt" '(git-timemachine :which-key "git time machine")
+   "h" '(:ignore t :which-key "Help")
+   "hd" '(:ignore t :which-key "Describe")
+   "hdk" 'describe-key
+   "hdf" 'describe-function
+   "hdv" 'describe-variable
+   "hdp" 'describe-package
+   "hdm" 'describe-mode
+   "hK" 'Info-goto-emacs-key-command-node
+   "hw" 'where-is
    "l"  '(:ignore t :which-key "Line")
    "ls" '(sort-lines :which-key "Sort lines")
    "p" 'projectile-command-map
