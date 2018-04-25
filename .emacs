@@ -21,7 +21,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
+    (haml-mode restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -42,7 +42,7 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-(setq initial-buffer-choice t)
+(setq inhibit-startup-screen t)
 (setq initial-scratch-message nil)
 
 (setq evil-want-C-u-scroll t)
@@ -54,6 +54,9 @@
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
 (use-package ag)
+
+(use-package haml-mode
+  :mode "\\.haml\\'")
 
 (use-package diminish)
 
@@ -91,9 +94,11 @@
 (use-package all-the-icons)
 
 (use-package neotree
+  :after (projectile)
   :config
   (setq neo-smart-open t)
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  (setq projectile-switch-project-action 'neotree-projectile-action)
   (evil-define-key 'normal neotree-mode-map (kbd "'") 'neotree-quick-look)
   (evil-define-key 'normal neotree-mode-map (kbd "C") 'neotree-copy-node)
   (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
@@ -104,8 +109,7 @@
   (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
   (evil-define-key 'normal neotree-mode-map (kbd "r") 'neotree-rename-node)
   (evil-define-key 'normal neotree-mode-map (kbd "x") 'neotree-delete-node)
-  (evil-define-key 'normal neotree-mode-map (kbd "y") 'neotree-copy-filepath-to-yank-ring)
-  )
+  (evil-define-key 'normal neotree-mode-map (kbd "y") 'neotree-copy-filepath-to-yank-ring))
 
 (use-package zenburn-theme
   :config
