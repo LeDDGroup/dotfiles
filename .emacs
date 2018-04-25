@@ -153,6 +153,9 @@
 
 (use-package prettier-js)
 
+(use-package restclient
+  :commands (restclient-mode))
+
 (use-package add-node-modules-path)
 
 (use-package exec-path-from-shell
@@ -163,10 +166,9 @@
   :commands (git-timemachine)
   :after (magit))
 
-(use-package restclient)
-
 (use-package general
   :config
+  (evil-define-key 'normal 'with-editor-mode-map ",," 'with-editor-finish)
   (general-define-key
    :states '(normal visual insert emacs)
    :prefix "SPC"
