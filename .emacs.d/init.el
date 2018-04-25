@@ -180,6 +180,8 @@
    "fs" '(save-buffer :which-key "Save file")
    "ft" '(neotree-toggle :which-key "Toggle neotree")
    "g"  '(:ignore t :which-key "Git")
+   "gS" '(magit-stage-file :which-key "git stage")
+   "gU" '(magit-unstage-file :which-key "git unstage")
    "gb" '(magit-blame :which-key "git blame")
    "gs" '(magit-status :which-key "git status")
    "gt" '(git-timemachine :which-key "git time machine")
