@@ -170,6 +170,10 @@
   :config
   (evil-define-key 'normal 'with-editor-mode-map ",," 'with-editor-finish)
   (general-define-key
+   :keymaps 'ivy-minibuffer-map
+   "C-j" 'ivy-next-line
+   "C-k" 'ivy-previous-line)
+  (general-define-key
    :states '(normal visual insert emacs)
    :prefix "SPC"
    :non-normal-prefix "C-SPC"
@@ -234,8 +238,14 @@
    "wl" '(evil-window-right :which-key "Window right")
    "ws" '(evil-window-split :which-key "Window horizontal split")
    "wv" '(evil-window-vsplit :which-key "Window vertical split")
+   ";" '(comment-line :which-key "Comment line/lines")
+   "TAB" '(previous-buffer :which-key "Previous Buffer")
    )
   )
+
+(setq-default evil-escape-key-sequence "fd")
+(setq-default evil-escape-delay 0.1)
+(evil-escape-mode)
 
 (add-to-list 'load-path "~/.emacs.d/layers")
 (require 'core)
