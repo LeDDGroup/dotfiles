@@ -171,7 +171,9 @@
    :states '(normal visual insert emacs)
    :prefix "SPC"
    :non-normal-prefix "C-SPC"
+   ";" '(comment-line :which-key "Comment line/lines")
    "SPC" `(execute-extended-command :which-key "Run command")
+   "TAB" '(previous-buffer :which-key "Previous Buffer")
    "a"  '(:ignore t :which-key "Applications")
    "ac" '(calc :which-key "Calc")
    "ad" '(dired :which-key "Dired")
@@ -222,8 +224,6 @@
    "wl" '(evil-window-right :which-key "Window right")
    "ws" '(evil-window-split :which-key "Window horizontal split")
    "wv" '(evil-window-vsplit :which-key "Window vertical split")
-   ";" '(comment-line :which-key "Comment line/lines")
-   "TAB" '(previous-buffer :which-key "Previous Buffer")
    )
   )
 
