@@ -92,7 +92,7 @@
 
 (use-package neotree
   :config
-  (setq neo-smart-open t)
+  (setq neo-smart-open nil)
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
   (evil-define-key 'normal neotree-mode-map (kbd "'") 'neotree-quick-look)
   (evil-define-key 'normal neotree-mode-map (kbd "C") 'neotree-copy-node)
