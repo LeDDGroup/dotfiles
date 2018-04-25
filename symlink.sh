@@ -1,4 +1,3 @@
-ln -sF ~/dotfiles/.emacs ~/.emacs
-ln -sF ~/dotfiles/.emacs.d ~/
-ln -sF ~/dotfiles/init.vim ~/.vimrc
-ln -sF ~/dotfiles/init.vim ~/.config/nvim/init.vim
+ln -sf ~/dotfiles/.emacs.d ~/
+ln -sf ~/dotfiles/init.vim ~/.vimrc
+ln -sf ~/dotfiles/init.vim ~/.config/nvim/init.vim
