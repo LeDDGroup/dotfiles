@@ -21,7 +21,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (haml-mode restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
+    (evil-escape haml-mode restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -166,6 +166,12 @@
   :commands (git-timemachine)
   :after (magit))
 
+(use-package evil-escape
+  :config
+  (setq-default evil-escape-key-sequence "fd")
+  (setq-default evil-escape-delay 0.1)
+  (evil-escape-mode))
+
 (use-package general
   :config
   (evil-define-key 'normal 'with-editor-mode-map ",," 'with-editor-finish)
@@ -242,10 +248,6 @@
    "TAB" '(previous-buffer :which-key "Previous Buffer")
    )
   )
-
-(setq-default evil-escape-key-sequence "fd")
-(setq-default evil-escape-delay 0.1)
-(evil-escape-mode)
 
 (add-to-list 'load-path "~/.emacs.d/layers")
 (require 'core)
