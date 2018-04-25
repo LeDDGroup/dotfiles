@@ -180,6 +180,10 @@
    "bn" '(next-buffer :which-key "Next buffer")
    "bp" '(previous-buffer :which-key "Previous buffer")
    "bs" '(open-scratch-buffer :which-key "Scratch buffer")
+   "d" '(:ignore t :which-key "Describe")
+   "dk" 'describe-key
+   "df" 'describe-function
+   "dv" 'describe-variable
    "e"  '(:ignore t :which-key "Error")
    "eb" '(eval-buffer :which-key "Eval buffer")
    "el" '(flycheck-list-errors :which-key "List errors")
