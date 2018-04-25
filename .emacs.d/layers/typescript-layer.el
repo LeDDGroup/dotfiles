@@ -13,9 +13,11 @@
     (setq flycheck-check-syntax-automatically '(save mode-enabled))
     (eldoc-mode +1)
     (tide-hl-identifier-mode +1)
+    (if (locate-dominating-file default-directory ".prettierrc")
+	(prettier-js-mode +1)
+      (add-hook 'before-save-hook 'tide-format-before-save))
     (company-mode +1))
-  (setq company-tooltip-align-annotations t)
-  (add-hook 'before-save-hook 'tide-format-before-save))
+  (setq company-tooltip-align-annotations t))
 
 (provide 'typescript-layer)
 ;;; typescript-layer.el ends here
