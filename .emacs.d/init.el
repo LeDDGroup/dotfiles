@@ -83,6 +83,9 @@
 (use-package all-the-icons)
 
 (use-package neotree
+  :commands
+  (neotree-projectile-action
+   neotree-toggle)
   :config
   (setq neo-smart-open nil)
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
