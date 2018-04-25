@@ -151,7 +151,8 @@
   :config
   (global-diff-hl-mode))
 
-(use-package prettier-js)
+(use-package prettier-js
+  :hook prog-mode)
 
 (use-package restclient
   :commands (restclient-mode))
