@@ -190,6 +190,8 @@
    "qq" '(kill-emacs :which-key "Kill emacs")
    "r"  '(:ignore t :which-key "Refactor")
    "rp" '(prettier-js :which-key "Prettierjs")
+   "s"  '(:ignore t :which-key "Search")
+   "ss" '(swiper :which-key "swiper")
    "t"  '(:ignore t :which-key "Toggle/Typescript")
    "td" '(tide-jump-to-definition :which-key "jump to definition")
    "te"  '(:ignore t :which-key "Error")
