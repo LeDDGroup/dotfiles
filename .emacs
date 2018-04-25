@@ -185,6 +185,8 @@
    :prefix "SPC"
    :non-normal-prefix "C-SPC"
    "SPC" `(execute-extended-command :which-key "Run command")
+   ";" '(comment-line :which-key "Comment line/lines")
+   "TAB" '(previous-buffer :which-key "Previous Buffer")
    ":" 'evil-ex
    "a"  '(:ignore t :which-key "Applications")
    "ac" '(calc :which-key "Calc")
@@ -237,16 +239,20 @@
    "tmc" '(company-mode :which-key "Company")
    "tmf" '(flycheck-mode :which-key "Flycheck")
    "tmp" '(prettier-js-mode :which-key "Prettier js")
+
+   ;; Window
    "w"  '(:ignore t :which-key "Window")
-   "wd" '(evil-window-delete :which-key "Window delete")
-   "wh" '(evil-window-left :which-key "Window left")
-   "wj" '(evil-window-down :which-key "Window down")
-   "wk" '(evil-window-up :which-key "Window up")
-   "wl" '(evil-window-right :which-key "Window right")
-   "ws" '(evil-window-split :which-key "Window horizontal split")
-   "wv" '(evil-window-vsplit :which-key "Window vertical split")
-   ";" '(comment-line :which-key "Comment line/lines")
-   "TAB" '(previous-buffer :which-key "Previous Buffer")
+   "wd" '(evil-window-delete :which-key "Delete")
+   "wh" '(evil-window-left :which-key "Left")
+   "wj" '(evil-window-down :which-key "Down")
+   "wk" '(evil-window-up :which-key "Up")
+   "wl" '(evil-window-right :which-key "Right")
+   "wH" '(evil-window-move-far-left :which-key "Move left")
+   "wJ" '(evil-window-move-very-bottom :which-key "Move up")
+   "wK" '(evil-window-move-very-top :which-key "Move down")
+   "wL" '(evil-window-move-far-right :which-key "Move right")
+   "ws" '(evil-window-split :which-key "Horizontal split")
+   "wv" '(evil-window-vsplit :which-key "Vertical split")
    )
   )
 
