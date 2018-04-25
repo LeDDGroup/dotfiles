@@ -21,7 +21,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
+    (evil-escape haml-mode restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -42,7 +42,7 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-(setq initial-buffer-choice t)
+(setq inhibit-startup-screen t)
 (setq initial-scratch-message nil)
 
 (setq evil-want-C-u-scroll t)
@@ -54,6 +54,9 @@
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
 (use-package ag)
+
+(use-package haml-mode
+  :mode "\\.haml\\'")
 
 (use-package diminish)
 
@@ -86,9 +89,11 @@
   :commands
   (neotree-projectile-action
    neotree-toggle)
+  :after (projectile)
   :config
   (setq neo-smart-open nil)
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  (setq projectile-switch-project-action 'neotree-projectile-action)
   (evil-define-key 'normal neotree-mode-map (kbd "'") 'neotree-quick-look)
   (evil-define-key 'normal neotree-mode-map (kbd "-") 'neotree-enter-horizontal-split)
   (evil-define-key 'normal neotree-mode-map (kbd "C") 'neotree-copy-node)
@@ -109,6 +114,7 @@
   (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
   (evil-define-key 'normal neotree-mode-map (kbd "r") 'neotree-rename-node)
   (evil-define-key 'normal neotree-mode-map (kbd "s") 'neotree-hidden-file-toggle)
+  (evil-define-key 'normal neotree-mode-map (kbd "y") 'neotree-copy-filepath-to-yank-ring)
   (evil-define-key 'normal neotree-mode-map (kbd "|") 'neotree-enter-vertical-split)
   )
 
@@ -150,16 +156,24 @@
 
 (use-package prettier-js)
 
+(use-package restclient
+  :commands (restclient-mode))
+
 (use-package add-node-modules-path)
 
 (use-package exec-path-from-shell
   :config
   (exec-path-from-shell-initialize))
 
-(use-package restclient)
+(use-package evil-escape
+  :config
+  (setq-default evil-escape-key-sequence "fd")
+  (setq-default evil-escape-delay 0.1)
+  (evil-escape-mode))
 
 (use-package general
   :config
+  (evil-define-key 'normal 'with-editor-mode-map ",," 'with-editor-finish)
   (general-define-key
    :keymaps 'ivy-minibuffer-map
    "C-j" 'ivy-next-line
@@ -168,6 +182,8 @@
    :states '(normal visual insert emacs)
    :prefix "SPC"
    :non-normal-prefix "C-SPC"
+   ":" 'evil-ex
+   ";" '(comment-line :which-key "Comment line/lines")
    ";" '(comment-line :which-key "Comment line/lines")
    "SPC" `(execute-extended-command :which-key "Run command")
    "TAB" '(previous-buffer :which-key "Previous Buffer")
@@ -198,6 +214,15 @@
    "gb" '(magit-blame :which-key "git blame")
    "gs" '(magit-status :which-key "git status")
    "gt" '(git-timemachine :which-key "git time machine")
+   "h" '(:ignore t :which-key "Help")
+   "hK" 'Info-goto-emacs-key-command-node
+   "hd" '(:ignore t :which-key "Describe")
+   "hdf" 'describe-function
+   "hdk" 'describe-key
+   "hdm" 'describe-mode
+   "hdp" 'describe-package
+   "hdv" 'describe-variable
+   "hw" 'where-is
    "l"  '(:ignore t :which-key "Line")
    "ls" '(sort-lines :which-key "Sort lines")
    "p" 'projectile-command-map
@@ -218,19 +243,19 @@
    "tmf" '(flycheck-mode :which-key "Flycheck")
    "tmp" '(prettier-js-mode :which-key "Prettier js")
    "w"  '(:ignore t :which-key "Window")
-   "wd" '(evil-window-delete :which-key "Window delete")
-   "wh" '(evil-window-left :which-key "Window left")
-   "wj" '(evil-window-down :which-key "Window down")
-   "wk" '(evil-window-up :which-key "Window up")
-   "wl" '(evil-window-right :which-key "Window right")
-   "ws" '(evil-window-split :which-key "Window horizontal split")
-   "wv" '(evil-window-vsplit :which-key "Window vertical split")
+   "wH" '(evil-window-move-far-left :which-key "Move left")
+   "wJ" '(evil-window-move-very-bottom :which-key "Move up")
+   "wK" '(evil-window-move-very-top :which-key "Move down")
+   "wL" '(evil-window-move-far-right :which-key "Move right")
+   "wd" '(evil-window-delete :which-key "Delete")
+   "wh" '(evil-window-left :which-key "Left")
+   "wj" '(evil-window-down :which-key "Down")
+   "wk" '(evil-window-up :which-key "Up")
+   "wl" '(evil-window-right :which-key "Right")
+   "ws" '(evil-window-split :which-key "Horizontal split")
+   "wv" '(evil-window-vsplit :which-key "Vertical split")
    )
   )
-
-(setq-default evil-escape-key-sequence "fd")
-(setq-default evil-escape-delay 0.1)
-(evil-escape-mode)
 
 (add-to-list 'load-path "~/.emacs.d/layers")
 (require 'core)
