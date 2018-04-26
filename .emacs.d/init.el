@@ -72,6 +72,10 @@
 
 (use-package evil
   :config
+  (defun evil-backward ()
+    (interactive)
+    (evil-delete-backward-char 1 1)
+    (evil-delete-backward-word))
   (evil-mode 1))
 
 (use-package golden-ratio
@@ -178,6 +182,7 @@
   (evil-define-key 'normal 'with-editor-mode-map ",," 'with-editor-finish)
   (general-define-key
    :keymaps 'ivy-minibuffer-map
+   "C-h" 'evil-backward
    "C-j" 'ivy-next-line
    "C-k" 'ivy-previous-line)
   (general-define-key
