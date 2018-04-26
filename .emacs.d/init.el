@@ -205,7 +205,7 @@
    "f"  '(:ignore t :which-key "File")
    "fe"  '(:ignore t :which-key "Emacs")
    "fed" '(edit-config :which-key "Config File")
-   "fer" '(reload-config :which-key "Config File")
+   "fer" '(reload-config :which-key "Reload config File")
    "ff" '(find-file :which-key "Find file")
    "fp" '(neotree-projectile-action :which-key "Neotree project")
    "fs" '(save-buffer :which-key "Save file")
@@ -259,10 +259,16 @@
    )
   )
 
+
+(setq auto-mode-alist (append '(("\\.js$" . typescript-mode)) auto-mode-alist))
+(setq auto-mode-alist (append '(("\\.jsx$" . typescript-mode)) auto-mode-alist))
+(setq auto-mode-alist (append '(("\\.tsx$" . typescript-mode)) auto-mode-alist))
+(setq auto-mode-alist (append '(("\\.http$" . restclient-mode)) auto-mode-alist))
+
 (add-to-list 'load-path "~/.emacs.d/layers")
 (require 'core)
 (require 'spacemacs)
 (require 'typescript-layer)
 (require 'git-layer)
 
-;;; .emacs ends here
+;;; init.el ends here
