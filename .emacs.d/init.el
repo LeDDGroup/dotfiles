@@ -180,6 +180,15 @@
 (use-package general
   :config
   (evil-define-key 'normal 'with-editor-mode-map ",," 'with-editor-finish)
+  (setq tab 0)
+  (defun alternate-buffer ()
+    (interactive)
+    (if (eq tab 1)
+	(progn (setq tab 0)
+	  (next-buffer))
+      (progn (setq tab 1)
+	(previous-buffer)
+	)))
   (general-define-key
    :keymaps 'ivy-minibuffer-map
    "C-h" 'evil-backward
@@ -193,7 +202,7 @@
    ";" '(comment-line :which-key "Comment line/lines")
    ";" '(comment-line :which-key "Comment line/lines")
    "SPC" `(execute-extended-command :which-key "Run command")
-   "TAB" '(previous-buffer :which-key "Previous Buffer")
+   "TAB" '(alternate-buffer :which-key "Alternate Buffer")
    "a"  '(:ignore t :which-key "Applications")
    "ac" '(calc :which-key "Calc")
    "ad" '(dired :which-key "Dired")
