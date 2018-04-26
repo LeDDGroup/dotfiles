@@ -49,6 +49,8 @@
 
 (setq use-package-always-ensure t)
 
+(setq-default indent-tabs-mode nil)
+
 (use-package benchmark-init
   :config
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
