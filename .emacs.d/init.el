@@ -260,17 +260,11 @@
    "rp" '(prettier-js :which-key "Prettierjs")
    "s"  '(:ignore t :which-key "Search")
    "ss" '(swiper :which-key "swiper")
-   "t"  '(:ignore t :which-key "Toggle/Typescript")
-   "td" '(tide-jump-to-definition :which-key "jump to definition")
-   "te"  '(:ignore t :which-key "Error")
-   "tel" '(tide-project-errors :which-key "list")
-   "ten" '(tide-next-error-function :which-key "next")
-   "tep" '(tide-find-previous-error :which-key "previous")
+   "t"  '(:ignore t :which-key "Toggle")
    "tm"  '(:ignore t :which-key "Mode")
    "tmc" '(company-mode :which-key "Company")
    "tmf" '(flycheck-mode :which-key "Flycheck")
    "tmp" '(prettier-js-mode :which-key "Prettier js")
-   "tr" '(tide-rename-symbol :which-key "rename")
    "w"  '(:ignore t :which-key "Window")
    "wH" '(evil-window-move-far-left :which-key "Move left")
    "wJ" '(evil-window-move-very-bottom :which-key "Move up")
@@ -292,6 +286,18 @@
     "N" 'git-timemachine-show-previous-revision
     "Y" 'git-timemachine-kill-revision
     "q" 'git-timemachine-quit)
+  (general-define-key
+   :states '(normal visual insert emacs)
+   :prefix "SPC m"
+   :non-normal-prefix "C-SPC m"
+   :keymaps 'typescript-mode-map
+   "e"  '(:ignore t :which-key "Error")
+   "el" '(tide-project-errors :which-key "list")
+   "en" '(tide-next-error-function :which-key "next")
+   "ep" '(tide-find-previous-error :which-key "previous")
+   "g" '(tide-jump-to-definition :which-key "jump to definition")
+   "r" '(tide-rename-symbol :which-key "rename var")
+   )
   )
 
 
