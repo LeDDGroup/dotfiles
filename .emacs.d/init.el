@@ -80,12 +80,10 @@
                 ((eq major-mode 'dired-mode) "emacs")
                 ((string-equal "magit" (substring (buffer-name) 0 5)) "magit")
                 ((assoc (buffer-name) ctabbars) (cdr (assoc (buffer-name) ctabbars)))
-                (t (if (tabbar-current-tabset)
-                       (progn
-                         (push (cons (buffer-name) (concat "user-tab-" (number-to-string (length ())))) ctabbars)
-                         ;; (tabbar-current-tabset)
-                         "default")
-                     "user")))))
+                (t (progn
+                     (setq tabname (concat "user-tab-" (number-to-string (length ctabbars))))
+                     (push (cons (buffer-name) tabname) ctabbars)
+                     tabname)))))
   (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups))
 
 
@@ -219,6 +217,7 @@
     ",," 'with-editor-finish
     ",k" 'with-editor-cancel)
   (general-define-key
+   :states '(normal visual insert emacs)
    "C-t" 'open-scratch-buffer
    "C-q" 'kill-current-buffer
    "C-<tab>" 'tabbar-forward-tab
