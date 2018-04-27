@@ -315,9 +315,6 @@
 (add-hook 'web-mode-hook 'prettier-js-mode)
 (setq prettier-js-show-errors 'echo)
 
-(if (file-exists-p "~/.emacs.d/custom.el")
-    (load-file "~/.emacs.d/custom.el"))
-
 (tabbar-mode)
 (require 'core "~/.emacs.d/layers/core.el")
 (require 'spacemacs "~/.emacs.d/layers/spacemacs.el")
