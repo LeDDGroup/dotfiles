@@ -72,7 +72,14 @@
 
 (use-package diminish)
 
-(use-package tabbar)
+(use-package tabbar
+  :config
+  (defun my-tabbar-buffer-groups ()
+    (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
+                ((eq major-mode 'dired-mode) "emacs")
+                ((string-equal "magit" (substring (buffer-name) 0 5)) "magit")
+                (t "user"))))
+  (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups))
 
 (use-package nlinum
   :config
@@ -297,13 +304,6 @@
    "wv" '(evil-window-vsplit :which-key "Vertical split")
    )
   )
-
-(defun my-tabbar-buffer-groups ()
-  (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
-               ((eq major-mode 'dired-mode) "emacs")
-               ((string-equal "magit" (substring (buffer-name) 0 5)) "magit")
-               (t "user"))))
-(setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
 
 (setq auto-mode-alist (append '(("\\.js$" . typescript-mode)) auto-mode-alist))
 (setq auto-mode-alist (append '(("\\.jsx$" . typescript-mode)) auto-mode-alist))
