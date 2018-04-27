@@ -202,8 +202,8 @@
     ",k" 'with-editor-cancel)
   (general-define-key
    "C-q" 'kill-current-buffer
-   "C-<tab>" 'previous-buffer
-   "<C-S-iso-lefttab>" 'next-buffer)
+   "<C-S-iso-lefttab>" 'previous-buffer
+   "C-<tab>" 'next-buffer)
   (general-define-key
    "C-<tab>" 'previous-buffer
    "C-S-<tab>" 'next-buffer)
