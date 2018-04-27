@@ -72,6 +72,8 @@
 
 (use-package diminish)
 
+(use-package tabbar)
+
 (use-package nlinum
   :config
   (global-nlinum-mode 1))
@@ -203,8 +205,8 @@
     ",k" 'with-editor-cancel)
   (general-define-key
    "C-q" 'kill-current-buffer
-   "C-<tab>" 'next-buffer
-   "<C-S-iso-lefttab>" 'previous-buffer)
+   "C-<tab>" 'tabbar-forward
+   "<C-S-iso-lefttab>" 'tabbar-backward)
   (general-define-key
    :keymaps 'projectile-command-map
    "t" 'neotree-projectile-action)
