@@ -181,6 +181,9 @@
   :config
   (evil-define-key 'normal 'with-editor-mode-map ",," 'with-editor-finish)
   (general-define-key
+   "C-<tab>" 'previous-buffer
+   "C-S-<tab>" 'next-buffer)
+  (general-define-key
    :keymaps 'ivy-minibuffer-map
    "C-h" 'evil-backward
    "C-j" 'ivy-next-line
@@ -190,7 +193,6 @@
    :prefix "SPC"
    :non-normal-prefix "C-SPC"
    ":" 'evil-ex
-   ";" '(comment-line :which-key "Comment line/lines")
    ";" '(comment-line :which-key "Comment line/lines")
    "SPC" `(execute-extended-command :which-key "Run command")
    "TAB" '(previous-buffer :which-key "Previous buffer")
