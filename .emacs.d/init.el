@@ -205,8 +205,8 @@
     ",k" 'with-editor-cancel)
   (general-define-key
    "C-q" 'kill-current-buffer
-   "C-<tab>" 'tabbar-forward
-   "<C-S-iso-lefttab>" 'tabbar-backward)
+   "C-<tab>" 'tabbar-forward-tab
+   "<C-S-iso-lefttab>" 'tabbar-backward-tab)
   (general-define-key
    :keymaps 'projectile-command-map
    "t" 'neotree-projectile-action)
@@ -302,6 +302,7 @@
  tabbar.el v1.7."
   (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
                ((eq major-mode 'dired-mode) "emacs")
+               ((string-equal "magit:" (substring (buffer-name) 0 6)) "magit")
                (t "user"))))
 (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
 
