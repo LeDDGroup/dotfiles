@@ -262,6 +262,7 @@
    "tmc" '(company-mode :which-key "Company")
    "tmf" '(flycheck-mode :which-key "Flycheck")
    "tmp" '(prettier-js-mode :which-key "Prettier js")
+   "tr" '(tide-rename-symbol :which-key "rename")
    "w"  '(:ignore t :which-key "Window")
    "wH" '(evil-window-move-far-left :which-key "Move left")
    "wJ" '(evil-window-move-very-bottom :which-key "Move up")
