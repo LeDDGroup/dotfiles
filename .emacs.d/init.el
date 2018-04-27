@@ -291,6 +291,7 @@
    :prefix "SPC m"
    :non-normal-prefix "C-SPC m"
    :keymaps 'typescript-mode-map
+   "" '(nil :which-key "Typescript")
    "e"  '(:ignore t :which-key "Error")
    "el" '(tide-project-errors :which-key "list")
    "en" '(tide-next-error-function :which-key "next")
