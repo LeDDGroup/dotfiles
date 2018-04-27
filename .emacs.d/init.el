@@ -314,6 +314,8 @@
 
 (if (file-exists-p "~/.emacs.d/custom.el")
     (load-file "~/.emacs.d/custom.el"))
+
+(tabbar-mode)
 (require 'core "~/.emacs.d/layers/core.el")
 (require 'spacemacs "~/.emacs.d/layers/spacemacs.el")
 (require 'typescript-layer "~/.emacs.d/layers/typescript-layer.el")
