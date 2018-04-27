@@ -301,7 +301,7 @@
 (defun my-tabbar-buffer-groups ()
   (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
                ((eq major-mode 'dired-mode) "emacs")
-               ((string-equal "magit:" (substring (buffer-name) 0 6)) "magit")
+               ((string-equal "magit" (substring (buffer-name) 0 5)) "magit")
                (t "user"))))
 (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
 
