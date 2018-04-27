@@ -163,7 +163,14 @@
   :config
   (counsel-projectile-mode t))
 
-(use-package prettier-js)
+(use-package prettier-js
+  :config
+  (setq prettier-js-args '(
+                           "--config-precedence" "file-override"
+                           "--print-width" "100"
+                           "--trailing-comma" "all"
+                           ))
+  )
 
 (use-package restclient
   :commands (restclient-mode))
@@ -276,6 +283,7 @@
 (setq auto-mode-alist (append '(("\\.tsx$" . typescript-mode)) auto-mode-alist))
 (setq auto-mode-alist (append '(("\\.http$" . restclient-mode)) auto-mode-alist))
 (add-hook 'web-mode-hook 'prettier-js-mode)
+(setq prettier-js-show-errors 'echo)
 
 (add-to-list 'load-path "~/.emacs.d/layers")
 (require 'core)
