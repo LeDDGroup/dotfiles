@@ -21,7 +21,8 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (evil-escape haml-mode restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
+    (pug-mode evil-escape haml-mode restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag)))
+ '(tabbar-mode nil nil (tabbar)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -200,6 +201,10 @@
     ",," 'with-editor-finish
     ",k" 'with-editor-cancel)
   (general-define-key
+   "C-q" 'kill-current-buffer
+   "C-<tab>" 'previous-buffer
+   "<C-S-iso-lefttab>" 'next-buffer)
+  (general-define-key
    "C-<tab>" 'previous-buffer
    "C-S-<tab>" 'next-buffer)
   (general-define-key
@@ -217,8 +222,8 @@
    ":" 'evil-ex
    ";" '(comment-line :which-key "Comment line/lines")
    "SPC" `(execute-extended-command :which-key "Run command")
-   "TAB" '(previous-buffer :which-key "Previous buffer")
-   "S-<iso-lefttab>" '(next-buffer :which-key "Next buffer")
+   "TAB" '(tabbar-mode :which-key "Tabbar Mode")
+   ;; "S-<iso-lefttab>" '(next-buffer :which-key "Next buffer")
    "a"  '(:ignore t :which-key "Applications")
    "ac" '(calc :which-key "Calc")
    "ad" '(dired :which-key "Dired")
