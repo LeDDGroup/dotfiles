@@ -195,7 +195,7 @@
    "C-S-<tab>" 'next-buffer)
   (general-define-key
    :keymaps 'ivy-minibuffer-map
-   "C-h" 'evil-backward
+   "C-h" 'ivy-backward-kill-word
    "C-j" 'ivy-next-line
    "C-k" 'ivy-previous-line)
   (general-define-key
