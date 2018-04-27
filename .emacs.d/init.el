@@ -220,6 +220,8 @@
    "el" '(flycheck-list-errors :which-key "List errors")
    "en" '(next-error :which-key "Next error")
    "ep" '(previous-error :which-key "Previous error")
+   "eN" '(previous-error :which-key "Previous error")
+   "eP" '(next-error :which-key "Next error")
    "f"  '(:ignore t :which-key "File")
    "fe"  '(:ignore t :which-key "Emacs")
    "fed" '(edit-config :which-key "Config File")
