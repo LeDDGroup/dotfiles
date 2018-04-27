@@ -222,8 +222,6 @@
    ":" 'evil-ex
    ";" '(comment-line :which-key "Comment line/lines")
    "SPC" `(execute-extended-command :which-key "Run command")
-   "TAB" '(tabbar-mode :which-key "Tabbar Mode")
-   ;; "S-<iso-lefttab>" '(next-buffer :which-key "Next buffer")
    "a"  '(:ignore t :which-key "Applications")
    "ac" '(calc :which-key "Calc")
    "ad" '(dired :which-key "Dired")
@@ -280,6 +278,11 @@
    "tmc" '(company-mode :which-key "Company")
    "tmf" '(flycheck-mode :which-key "Flycheck")
    "tmp" '(prettier-js-mode :which-key "Prettier js")
+   "tr" '(tide-rename-symbol :which-key "rename")
+   "<tab>"  '(:ignore t :which-key "Tabbar")
+   "<tab>T" '(tabbar-mode :which-key "Tabbar Mode")
+   "<tab>n" '(tabbar-forward-group :which-key "Tabbar forward group")
+   "<tab>p" '(tabbar-backward-group :which-key "Tabbar backward group")
    "w"  '(:ignore t :which-key "Window")
    "wH" '(evil-window-move-far-left :which-key "Move left")
    "wJ" '(evil-window-move-very-bottom :which-key "Move up")
@@ -295,11 +298,7 @@
    )
   )
 
-(defun my-tabbar-buffer-groups () ;; customize to show all normal files in one group
- "Returns the name of the tab group names the current buffer belongs to.
- There are two groups: Emacs buffers (those whose name starts with '*', plus
- dired buffers), and the rest.  This works at least with Emacs v24.2 using
- tabbar.el v1.7."
+(defun my-tabbar-buffer-groups ()
   (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
                ((eq major-mode 'dired-mode) "emacs")
                ((string-equal "magit:" (substring (buffer-name) 0 6)) "magit")
