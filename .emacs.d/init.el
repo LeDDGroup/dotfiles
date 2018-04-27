@@ -57,6 +57,9 @@
 
 (use-package ag)
 
+(use-package pug-mode
+  :mode "\\.pug\\'")
+
 (use-package haml-mode
   :mode "\\.haml\\'")
 
