@@ -272,6 +272,7 @@
 (setq auto-mode-alist (append '(("\\.jsx$" . typescript-mode)) auto-mode-alist))
 (setq auto-mode-alist (append '(("\\.tsx$" . typescript-mode)) auto-mode-alist))
 (setq auto-mode-alist (append '(("\\.http$" . restclient-mode)) auto-mode-alist))
+(add-hook 'web-mode-hook 'prettier-js-mode)
 
 (add-to-list 'load-path "~/.emacs.d/layers")
 (require 'core)
