@@ -195,7 +195,9 @@
 
 (use-package general
   :config
-  (evil-define-key 'normal 'with-editor-mode-map ",," 'with-editor-finish)
+  (evil-define-key 'normal 'with-editor-mode-map
+    ",," 'with-editor-finish
+    ",k" 'with-editor-cancel)
   (general-define-key
    "C-<tab>" 'previous-buffer
    "C-S-<tab>" 'next-buffer)
