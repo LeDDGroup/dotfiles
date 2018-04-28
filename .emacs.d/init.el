@@ -74,18 +74,12 @@
 
 (use-package tabbar
   :config
-  (setq ctabbars ())
   (defun my-tabbar-buffer-groups ()
     (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
                 ((eq major-mode 'dired-mode) "emacs")
                 ((string-equal "magit" (substring (buffer-name) 0 5)) "magit")
-                ((assoc (buffer-name) ctabbars) (cdr (assoc (buffer-name) ctabbars)))
-                (t (progn
-                     (setq tabname (concat "user-tab-" (number-to-string (length ctabbars))))
-                     (push (cons (buffer-name) tabname) ctabbars)
-                     tabname)))))
+                (t "user"))))
   (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups))
-
 
 (use-package nlinum
   :config
