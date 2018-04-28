@@ -202,6 +202,9 @@
    "C-<tab>" 'previous-buffer
    "C-S-<tab>" 'next-buffer)
   (general-define-key
+   :keymaps 'projectile-command-map
+   "t" 'neotree-projectile-action)
+  (general-define-key
    :keymaps 'ivy-minibuffer-map
    "C-h" 'ivy-backward-kill-word
    "C-j" 'ivy-next-line
