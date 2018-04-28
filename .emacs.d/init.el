@@ -297,10 +297,9 @@
 (add-hook 'web-mode-hook 'prettier-js-mode)
 (setq prettier-js-show-errors 'echo)
 
-(add-to-list 'load-path "~/.emacs.d/layers")
-(require 'core)
-(require 'spacemacs)
-(require 'typescript-layer)
-(require 'git-layer)
+(require 'core "~/.emacs.d/layers/core.el")
+(require 'spacemacs "~/.emacs.d/layers/spacemacs.el")
+(require 'typescript-layer "~/.emacs.d/layers/typescript-layer.el")
+(require 'git-layer "~/.emacs.d/layers/git-layer.el")
 
 ;;; init.el ends here
