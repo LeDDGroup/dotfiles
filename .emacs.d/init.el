@@ -280,14 +280,6 @@
    "ws" '(evil-window-split :which-key "Horizontal split")
    "wv" '(evil-window-vsplit :which-key "Vertical split")
    )
-  (evil-define-key 'normal 'git-timemachine-mode-map
-    "c" 'git-timemachine-show-current-revision
-    "g" 'git-timemachine-show-nth-revision
-    "p" 'git-timemachine-show-previous-revision
-    "n" 'git-timemachine-show-next-revision
-    "N" 'git-timemachine-show-previous-revision
-    "Y" 'git-timemachine-kill-revision
-    "q" 'git-timemachine-quit)
   (general-define-key
    :states '(normal visual insert emacs)
    :prefix "SPC m"
