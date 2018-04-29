@@ -155,6 +155,7 @@
   :diminish
   :ensure t
   :config
+  (setq ivy-use-selectable-prompt t)
   (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
