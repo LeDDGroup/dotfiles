@@ -74,11 +74,33 @@
 
 (use-package tabbar
   :config
+  (setq buffers-index ())
+  (defun goToBuffer1 ()
+    (interactive)
+    (goToBuffer 0))
+  (defun goToBuffer2 ()
+    (interactive)
+    (goToBuffer 1))
+  (defun goToBuffer3 ()
+    (interactive)
+    (goToBuffer 2))
+  (defun goToBuffer4 ()
+    (interactive)
+    (goToBuffer 3))
+  (defun goToBuffer5 ()
+    (interactive)
+    (goToBuffer 4))
+  (defun goToBuffer (bufferIndex)
+    (interactive)
+    (switch-to-buffer (nth bufferIndex (reverse buffers-index))))
   (defun my-tabbar-buffer-groups ()
     (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
                 ((eq major-mode 'dired-mode) "emacs")
                 ((string-equal "magit" (substring (buffer-name) 0 5)) "magit")
-                (t "user"))))
+                (t (progn
+                     ;; (print (buffer-name) t)
+                     (add-to-list 'buffers-index (buffer-name))
+                     "user")))))
   (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups))
 
 (use-package nlinum
@@ -211,7 +233,11 @@
     ",," 'with-editor-finish
     ",k" 'with-editor-cancel)
   (general-define-key
-   :states '(normal visual insert emacs)
+   "C-1" 'goToBuffer1
+   "C-2" 'goToBuffer2
+   "C-3" 'goToBuffer3
+   "C-4" 'goToBuffer4
+   "C-5" 'goToBuffer5
    "C-t" 'open-scratch-buffer
    "C-S-t" 'neotree-toggle
    "C-w" 'kill-current-buffer
