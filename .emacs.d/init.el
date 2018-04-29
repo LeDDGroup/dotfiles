@@ -298,6 +298,8 @@
 (add-hook 'web-mode-hook 'prettier-js-mode)
 (setq prettier-js-show-errors 'echo)
 
+(if (file-exists-p "~/.emacs.d/custom.el")
+    (load-file "~/.emacs.d/custom.el"))
 (require 'core "~/.emacs.d/layers/core.el")
 (require 'spacemacs "~/.emacs.d/layers/spacemacs.el")
 (require 'typescript-layer "~/.emacs.d/layers/typescript-layer.el")
