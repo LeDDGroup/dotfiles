@@ -213,6 +213,7 @@
   (general-define-key
    :states '(normal visual insert emacs)
    "C-t" 'open-scratch-buffer
+   "C-S-t" 'neotree-toggle
    "C-w" 'kill-current-buffer
    "C-<tab>" 'tabbar-forward-tab
    "<C-S-iso-lefttab>" 'tabbar-backward-tab)
