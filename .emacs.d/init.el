@@ -21,7 +21,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (evil-escape haml-mode restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
+    (magit evil-escape haml-mode restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -61,8 +61,6 @@
   :config
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
-(use-package ag)
-
 (use-package pug-mode
   :mode "\\.pug\\'")
 
@@ -98,7 +96,8 @@
 		  evil-window-down)))
   (golden-ratio-mode 1))
 
-(use-package all-the-icons)
+(use-package all-the-icons
+  :commands (neotree-toggle))
 
 (use-package neotree
   :commands
