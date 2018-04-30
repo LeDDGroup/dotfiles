@@ -21,7 +21,8 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (magit evil-escape haml-mode restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
+    (magit evil-escape haml-mode restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag)))
+ '(tabbar-mode nil nil (tabbar)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -68,6 +69,51 @@
   :mode "\\.haml\\'")
 
 (use-package diminish)
+
+(use-package tabbar
+  :config
+  (setq buffers-index ())
+  (defun tabbar-kill-current-buffer ()
+    (interactive)
+    (setq buffers-index (delete (buffer-name) buffers-index))
+    (kill-current-buffer))
+  (defun goToBuffer1 ()
+    (interactive)
+    (goToBuffer 0))
+  (defun goToBuffer2 ()
+    (interactive)
+    (goToBuffer 1))
+  (defun goToBuffer3 ()
+    (interactive)
+    (goToBuffer 2))
+  (defun goToBuffer4 ()
+    (interactive)
+    (goToBuffer 3))
+  (defun goToBuffer5 ()
+    (interactive)
+    (goToBuffer 4))
+  (defun goToBuffer6 ()
+    (interactive)
+    (goToBuffer 5))
+  (defun goToBuffer7 ()
+    (interactive)
+    (goToBuffer 6))
+  (defun goToBuffer (bufferIndex)
+    (interactive)
+    (switch-to-buffer (nth bufferIndex (reverse buffers-index))))
+  (defun prune (bufferIndex)
+    (interactive)
+    (switch-to-buffer (nth bufferIndex (reverse buffers-index))))
+  (defun my-tabbar-buffer-groups ()
+    ;; (setq-local buffers-index ())
+    (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
+                ((eq major-mode 'dired-mode) "emacs")
+                ((string-equal "magit" (substring (buffer-name) 0 5)) "magit")
+                (t (progn
+                     ;; (print (buffer-name) t)
+                     (add-to-list 'buffers-index (buffer-name))
+                     "user")))))
+  (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups))
 
 (use-package nlinum
   :config
@@ -199,8 +245,17 @@
     ",," 'with-editor-finish
     ",k" 'with-editor-cancel)
   (general-define-key
-   "C-<tab>" 'previous-buffer
-   "C-S-<tab>" 'next-buffer)
+   "C-1" 'goToBuffer1
+   "C-2" 'goToBuffer2
+   "C-3" 'goToBuffer3
+   "C-4" 'goToBuffer4
+   "C-5" 'goToBuffer5
+   "C-6" 'goToBuffer6
+   "C-7" 'goToBuffer7
+   "C-S-t" 'open-scratch-buffer
+   "C-q" 'tabbar-kill-current-buffer
+   "C-<tab>" 'tabbar-forward-tab
+   "<C-S-iso-lefttab>" 'tabbar-backward-tab)
   (general-define-key
    :keymaps 'projectile-command-map
    "t" 'neotree-projectile-action)
@@ -216,8 +271,6 @@
    ":" 'evil-ex
    ";" '(comment-line :which-key "Comment line/lines")
    "SPC" `(execute-extended-command :which-key "Run command")
-   "TAB" '(previous-buffer :which-key "Previous buffer")
-   "S-<iso-lefttab>" '(next-buffer :which-key "Next buffer")
    "a"  '(:ignore t :which-key "Applications")
    "ac" '(calc :which-key "Calc")
    "ad" '(dired :which-key "Dired")
@@ -274,6 +327,11 @@
    "tmc" '(company-mode :which-key "Company")
    "tmf" '(flycheck-mode :which-key "Flycheck")
    "tmp" '(prettier-js-mode :which-key "Prettier js")
+   "tmt" '(tabbar-mode :which-key "Tabbar")
+   "tr" '(tide-rename-symbol :which-key "rename")
+   "<tab>"  '(:ignore t :which-key "Tabbar")
+   "<tab>n" '(tabbar-forward-group :which-key "Tabbar forward group")
+   "<tab>p" '(tabbar-backward-group :which-key "Tabbar backward group")
    "w"  '(:ignore t :which-key "Window")
    "wH" '(evil-window-move-far-left :which-key "Move left")
    "wJ" '(evil-window-move-very-bottom :which-key "Move up")
@@ -289,7 +347,6 @@
    )
   )
 
-
 (setq auto-mode-alist (append '(("\\.js$" . typescript-mode)) auto-mode-alist))
 (setq auto-mode-alist (append '(("\\.jsx$" . typescript-mode)) auto-mode-alist))
 (setq auto-mode-alist (append '(("\\.tsx$" . typescript-mode)) auto-mode-alist))
@@ -297,8 +354,7 @@
 (add-hook 'web-mode-hook 'prettier-js-mode)
 (setq prettier-js-show-errors 'echo)
 
-(if (file-exists-p "~/.emacs.d/custom.el")
-    (load-file "~/.emacs.d/custom.el"))
+(tabbar-mode)
 (require 'core "~/.emacs.d/layers/core.el")
 (require 'spacemacs "~/.emacs.d/layers/spacemacs.el")
 (require 'typescript-layer "~/.emacs.d/layers/typescript-layer.el")
