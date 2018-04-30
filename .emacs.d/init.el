@@ -245,13 +245,6 @@
     ",," 'with-editor-finish
     ",k" 'with-editor-cancel)
   (general-define-key
-   "C-1" 'goToBuffer1
-   "C-2" 'goToBuffer2
-   "C-3" 'goToBuffer3
-   "C-4" 'goToBuffer4
-   "C-5" 'goToBuffer5
-   "C-6" 'goToBuffer6
-   "C-7" 'goToBuffer7
    "C-S-t" 'open-scratch-buffer
    "C-q" 'tabbar-kill-current-buffer
    "C-<tab>" 'tabbar-forward-tab
@@ -271,6 +264,13 @@
    ":" 'evil-ex
    ";" '(comment-line :which-key "Comment line/lines")
    "SPC" `(execute-extended-command :which-key "Run command")
+   "1" 'goToBuffer1
+   "2" 'goToBuffer2
+   "3" 'goToBuffer3
+   "4" 'goToBuffer4
+   "5" 'goToBuffer5
+   "6" 'goToBuffer6
+   "7" 'goToBuffer7
    "a"  '(:ignore t :which-key "Applications")
    "ac" '(calc :which-key "Calc")
    "ad" '(dired :which-key "Dired")
