@@ -9,13 +9,13 @@
 
 (use-package evil-magit
   :after (magit))
-(provide 'git-layer)
 
 (use-package git-timemachine
-  :commands (git-timemachine)
+  :commands git-timemachine
   :after (magit))
 
 (use-package diff-hl
-  :config
-  (global-diff-hl-mode))
+  :hook (prog-mode . diff-hl-mode))
+
+(provide 'git-layer)
 ;;; git-layer.el ends here

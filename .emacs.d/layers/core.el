@@ -5,7 +5,7 @@
 (defun open-scratch-buffer ()
   "Open scratch buffer."
   (interactive)
-  (switch-to-buffer "scratch"))
+  (switch-to-buffer "*scratch*"))
 
 (defun kill-current-buffer ()
   "Kill current buffer."
