@@ -77,27 +77,6 @@
     (interactive)
     (setq buffers-index (delete (buffer-name) buffers-index))
     (kill-current-buffer))
-  (defun goToBuffer1 ()
-    (interactive)
-    (goToBuffer 0))
-  (defun goToBuffer2 ()
-    (interactive)
-    (goToBuffer 1))
-  (defun goToBuffer3 ()
-    (interactive)
-    (goToBuffer 2))
-  (defun goToBuffer4 ()
-    (interactive)
-    (goToBuffer 3))
-  (defun goToBuffer5 ()
-    (interactive)
-    (goToBuffer 4))
-  (defun goToBuffer6 ()
-    (interactive)
-    (goToBuffer 5))
-  (defun goToBuffer7 ()
-    (interactive)
-    (goToBuffer 6))
   (defun goToBuffer (bufferIndex)
     (interactive)
     (switch-to-buffer (nth bufferIndex (reverse buffers-index))))
@@ -264,13 +243,14 @@
    ":" 'evil-ex
    ";" '(comment-line :which-key "Comment line/lines")
    "SPC" `(execute-extended-command :which-key "Run command")
-   "1" 'goToBuffer1
-   "2" 'goToBuffer2
-   "3" 'goToBuffer3
-   "4" 'goToBuffer4
-   "5" 'goToBuffer5
-   "6" 'goToBuffer6
-   "7" 'goToBuffer7
+   "1" (lambda () (interactive) (goToBuffer 0))
+   "2" (lambda () (interactive) (goToBuffer 1))
+   "3" (lambda () (interactive) (goToBuffer 2))
+   "4" (lambda () (interactive) (goToBuffer 3))
+   "5" (lambda () (interactive) (goToBuffer 4))
+   "6" (lambda () (interactive) (goToBuffer 5))
+   "7" (lambda () (interactive) (goToBuffer 6))
+   "8" (lambda () (interactive) (goToBuffer 7))
    "a"  '(:ignore t :which-key "Applications")
    "ac" '(calc :which-key "Calc")
    "ad" '(dired :which-key "Dired")
