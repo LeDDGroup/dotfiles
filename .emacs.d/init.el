@@ -94,6 +94,12 @@
   (defun goToBuffer5 ()
     (interactive)
     (goToBuffer 4))
+  (defun goToBuffer6 ()
+    (interactive)
+    (goToBuffer 5))
+  (defun goToBuffer7 ()
+    (interactive)
+    (goToBuffer 6))
   (defun goToBuffer (bufferIndex)
     (interactive)
     (switch-to-buffer (nth bufferIndex (reverse buffers-index))))
@@ -246,6 +252,8 @@
    "C-3" 'goToBuffer3
    "C-4" 'goToBuffer4
    "C-5" 'goToBuffer5
+   "C-6" 'goToBuffer6
+   "C-7" 'goToBuffer7
    "C-t" 'open-scratch-buffer
    "C-S-t" 'neotree-toggle
    "C-q" 'tabbar-kill-current-buffer
