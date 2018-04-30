@@ -75,6 +75,10 @@
 (use-package tabbar
   :config
   (setq buffers-index ())
+  (defun tabbar-kill-current-buffer ()
+    (interactive)
+    (setq buffers-index (delete (buffer-name) buffers-index))
+    (kill-current-buffer))
   (defun goToBuffer1 ()
     (interactive)
     (goToBuffer 0))
@@ -93,7 +97,11 @@
   (defun goToBuffer (bufferIndex)
     (interactive)
     (switch-to-buffer (nth bufferIndex (reverse buffers-index))))
+  (defun prune (bufferIndex)
+    (interactive)
+    (switch-to-buffer (nth bufferIndex (reverse buffers-index))))
   (defun my-tabbar-buffer-groups ()
+    ;; (setq-local buffers-index ())
     (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
                 ((eq major-mode 'dired-mode) "emacs")
                 ((string-equal "magit" (substring (buffer-name) 0 5)) "magit")
@@ -239,7 +247,8 @@
    "C-4" 'goToBuffer4
    "C-5" 'goToBuffer5
    "C-t" 'open-scratch-buffer
-   "C-w" 'kill-current-buffer
+   "C-S-t" 'neotree-toggle
+   "C-q" 'tabbar-kill-current-buffer
    "C-<tab>" 'tabbar-forward-tab
    "<C-S-iso-lefttab>" 'tabbar-backward-tab)
   (general-define-key
