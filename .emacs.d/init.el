@@ -254,8 +254,7 @@
    "C-5" 'goToBuffer5
    "C-6" 'goToBuffer6
    "C-7" 'goToBuffer7
-   "C-t" 'open-scratch-buffer
-   "C-S-t" 'neotree-toggle
+   "C-S-t" 'open-scratch-buffer
    "C-q" 'tabbar-kill-current-buffer
    "C-<tab>" 'tabbar-forward-tab
    "<C-S-iso-lefttab>" 'tabbar-backward-tab)
