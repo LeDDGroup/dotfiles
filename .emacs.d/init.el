@@ -218,6 +218,9 @@
   (setq-default evil-escape-delay 0.1)
   (evil-escape-mode))
 
+(use-package npm-mode
+  :commands (npm-mode))
+
 (use-package general
   :config
   (evil-define-key 'normal 'with-editor-mode-map

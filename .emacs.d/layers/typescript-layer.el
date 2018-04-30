@@ -27,6 +27,7 @@
     (setq flycheck-check-syntax-automatically '(save mode-enabled))
     (eldoc-mode +1)
     (tide-hl-identifier-mode +1)
+    (npm-mode +1)
     (if (locate-dominating-file default-directory ".prettierrc")
         (prettier-js-mode +1)
       (add-hook 'before-save-hook 'tide-format-before-save))
