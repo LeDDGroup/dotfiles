@@ -254,21 +254,31 @@
    "6" (lambda () (interactive) (goToBuffer 5))
    "7" (lambda () (interactive) (goToBuffer 6))
    "8" (lambda () (interactive) (goToBuffer 7))
+
+   ;; Applications
    "a"  '(:ignore t :which-key "Applications")
    "ac" '(calc :which-key "Calc")
    "ad" '(dired :which-key "Dired")
+
+   ;; Buffer
    "b"  '(:ignore t :which-key "Buffer")
    "bd" '(kill-current-buffer :which-key "Kill buffer")
    "bn" '(next-buffer :which-key "Next buffer")
    "bp" '(previous-buffer :which-key "Previous buffer")
    "bs" '(open-scratch-buffer :which-key "Scratch buffer")
-   "e"  '(:ignore t :which-key "Error")
+
+   ;; Eval / Error
+
+   "e"  '(:ignore t :which-key "Eval / Error")
    "eb" '(eval-buffer :which-key "Eval buffer")
    "el" '(flycheck-list-errors :which-key "List errors")
    "en" '(next-error :which-key "Next error")
    "ep" '(previous-error :which-key "Previous error")
    "eN" '(previous-error :which-key "Previous error")
    "eP" '(next-error :which-key "Next error")
+
+   ;; File
+
    "f"  '(:ignore t :which-key "File")
    "fe"  '(:ignore t :which-key "Emacs")
    "fed" '(edit-config :which-key "Config File")
@@ -277,6 +287,9 @@
    "fp" '(neotree-projectile-action :which-key "Neotree project")
    "fs" '(save-buffer :which-key "Save file")
    "ft" '(neotree-toggle :which-key "Toggle neotree")
+
+   ;; Git
+
    "g"  '(:ignore t :which-key "Git")
    "gS" '(magit-stage-file :which-key "git stage")
    "gU" '(magit-unstage-file :which-key "git unstage")
@@ -287,6 +300,9 @@
    "gcr" '(diff-hl-revert-hunk :which-key "revert hunk")
    "gs" '(magit-status :which-key "git status")
    "gt" '(git-timemachine :which-key "git time machine")
+
+   ;; Help
+
    "h" '(:ignore t :which-key "Help")
    "hK" 'Info-goto-emacs-key-command-node
    "hd" '(:ignore t :which-key "Describe")
@@ -296,13 +312,19 @@
    "hdp" 'describe-package
    "hdv" 'describe-variable
    "hw" 'where-is
+
    "l"  '(:ignore t :which-key "Line")
    "ls" '(sort-lines :which-key "Sort lines")
    "p" 'projectile-command-map
    "q"  '(:ignore t :which-key "Quit")
    "qq" '(kill-emacs :which-key "Kill emacs")
-   "r"  '(:ignore t :which-key "Refactor")
+
+   ;; REPL / Refactor
+
+   "r"  '(:ignore t :which-key "REPL / Refactor")
    "rp" '(prettier-js :which-key "Prettierjs")
+   "ri" 'ielm
+
    "s"  '(:ignore t :which-key "Search")
    "ss" '(swiper :which-key "swiper")
    "t"  '(:ignore t :which-key "Toggle")
@@ -315,6 +337,9 @@
    "<tab>"  '(:ignore t :which-key "Tabbar")
    "<tab>n" '(tabbar-forward-group :which-key "Tabbar forward group")
    "<tab>p" '(tabbar-backward-group :which-key "Tabbar backward group")
+
+   ;; Window
+
    "w"  '(:ignore t :which-key "Window")
    "wH" '(evil-window-move-far-left :which-key "Move left")
    "wJ" '(evil-window-move-very-bottom :which-key "Move up")
@@ -327,8 +352,7 @@
    "wl" '(evil-window-right :which-key "Right")
    "ws" '(evil-window-split :which-key "Horizontal split")
    "wv" '(evil-window-vsplit :which-key "Vertical split")
-   )
-  )
+   ))
 
 (setq auto-mode-alist (append '(("\\.js$" . typescript-mode)) auto-mode-alist))
 (setq auto-mode-alist (append '(("\\.jsx$" . typescript-mode)) auto-mode-alist))
