@@ -95,6 +95,7 @@
                      ;; (print (buffer-name) t)
                      (add-to-list 'buffers-index (buffer-name))
                      "user")))))
+
   (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups))
 
 (use-package nlinum
@@ -225,6 +226,12 @@
 
 (use-package general
   :config
+  (mapc (lambda (i)
+          (fset (intern (concat "goToBuffer" (number-to-string (- i 1))))
+                (lambda ()
+                  (interactive)
+                  (goToBuffer i))))
+        (number-sequence 1 9))
   (evil-define-key 'normal 'with-editor-mode-map
     ",," 'with-editor-finish
     ",k" 'with-editor-cancel)
@@ -248,14 +255,16 @@
    ":" 'evil-ex
    ";" '(comment-line :which-key "Comment line/lines")
    "SPC" `(execute-extended-command :which-key "Run command")
-   "1" (lambda () (interactive) (goToBuffer 0))
-   "2" (lambda () (interactive) (goToBuffer 1))
-   "3" (lambda () (interactive) (goToBuffer 2))
-   "4" (lambda () (interactive) (goToBuffer 3))
-   "5" (lambda () (interactive) (goToBuffer 4))
-   "6" (lambda () (interactive) (goToBuffer 5))
-   "7" (lambda () (interactive) (goToBuffer 6))
-   "8" (lambda () (interactive) (goToBuffer 7))
+
+   "1" 'goToBuffer1
+   "2" 'goToBuffer2
+   "3" 'goToBuffer3
+   "4" 'goToBuffer4
+   "5" 'goToBuffer5
+   "6" 'goToBuffer6
+   "7" 'goToBuffer7
+   "8" 'goToBuffer8
+   "9" 'goToBuffer9
 
    ;; Applications
    "a"  '(:ignore t :which-key "Applications")
