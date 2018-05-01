@@ -264,6 +264,7 @@
 
    ;; Buffer
    "b"  '(:ignore t :which-key "Buffer")
+   "bb" 'ivy-switch-buffer
    "bd" '(kill-current-buffer :which-key "Kill buffer")
    "bn" '(next-buffer :which-key "Next buffer")
    "bp" '(previous-buffer :which-key "Previous buffer")
