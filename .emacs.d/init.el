@@ -214,10 +214,10 @@
   (message "general")
   :config
   (mapc (lambda (i)
-          (fset (intern (concat "goToBuffer" (number-to-string (- i 1))))
-                (lambda ()
+          (fset (intern (concat "goToBuffer" (number-to-string i)))
+                (eval `(lambda ()
                   (interactive)
-                  (goToBuffer i))))
+                  (goToBuffer (- ,i 1))))))
         (number-sequence 1 9))
   (evil-define-key 'normal 'with-editor-mode-map
     ",," 'with-editor-finish
