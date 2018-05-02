@@ -360,7 +360,7 @@
 (setq prettier-js-show-errors 'echo)
 
 (tabbar-mode)
-(require 'core "~/.emacs.d/layers/core.el")
+(require 'utils "~/.emacs.d/layers/core.el")
 (require 'spacemacs "~/.emacs.d/layers/spacemacs.el")
 (require 'typescript-layer "~/.emacs.d/layers/typescript-layer.el")
 (require 'git-layer "~/.emacs.d/layers/git-layer.el")

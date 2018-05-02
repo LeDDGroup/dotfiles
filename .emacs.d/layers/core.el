@@ -22,5 +22,5 @@
   (interactive)
   (find-file user-init-file))
 
-(provide 'core)
+(provide 'utils)
 ;;; core.el ends here
