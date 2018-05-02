@@ -1,17 +1,10 @@
 ;;; package --- Summary
 ;;; Commentary:
-(require 'package)
 ;;; Code:
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(package-initialize)
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(eval-when-compile
-  (require 'use-package))
+(require 'setup)
+(require 'core)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -36,24 +29,16 @@
                     :weight 'normal
                     :width 'normal)
 
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-
-(defalias 'yes-or-no-p 'y-or-n-p)
-(setq ring-bell-function 'ignore)
 
 (setq vc-follow-symlinks t)
 
+(setq ring-bell-function 'ignore)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-(setq inhibit-startup-screen t)
-(setq initial-scratch-message nil)
 
 (setq evil-want-C-u-scroll t)
 
-(setq use-package-always-ensure t)
 
 (setq-default indent-tabs-mode nil)
 
@@ -224,6 +209,8 @@
   :commands (npm-mode))
 
 (use-package general
+  :init
+  (message "general")
   :config
   (mapc (lambda (i)
           (fset (intern (concat "goToBuffer" (number-to-string (- i 1))))
