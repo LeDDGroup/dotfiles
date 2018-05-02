@@ -118,6 +118,7 @@
    neotree-toggle)
   :after (projectile)
   :config
+  (setq neo-window-fixed-size nil)
   (setq neo-smart-open nil)
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
   (setq projectile-switch-project-action 'neotree-projectile-action)
