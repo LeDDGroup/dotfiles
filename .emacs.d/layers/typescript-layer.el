@@ -18,6 +18,7 @@
    "ep" '(tide-find-previous-error :which-key "previous")
    "g" '(tide-jump-to-definition :which-key "jump to definition")
    "r" '(tide-rename-symbol :which-key "rename var")
+   "s" '(tide-restart-server :which-key "restart server")
    )
   :config
   (defun setup-tide-mode ()
