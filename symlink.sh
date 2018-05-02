@@ -1,3 +1,3 @@
-ln -srf `pwd`/.emacs.d ~/
-ln -srf `pwd`/init.vim ~/.vimrc
-ln -srf `pwd`/init.vim ~/.config/nvim/init.vim
+ln -srf .emacs.d ~/
+ln -srf init.vim ~/.vimrc
+ln -srf init.vim ~/.config/nvim/init.vim
