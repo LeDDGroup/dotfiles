@@ -14,7 +14,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (counsel-projectile counsel evil pug-mode npm-mode yaml-mode tabbar magit evil-escape haml-mode restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
+    (flx counsel-projectile counsel evil pug-mode npm-mode yaml-mode tabbar magit evil-escape haml-mode restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
 
 (set-face-attribute 'default nil
                     :family "Source Code Pro"
@@ -145,6 +145,8 @@
 (use-package company
   :diminish
   :hook (prog-mode . company-mode))
+
+(use-package flx)
 
 (use-package ivy
   :diminish
