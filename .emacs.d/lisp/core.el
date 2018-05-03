@@ -12,10 +12,11 @@
 (setq
  auto-save-default nil
  debug-on-error t
+ gc-cons-threshold 40000000
  inhibit-startup-screen t
  initial-scratch-message nil
- ring-bell-function 'ignore
- make-backup-files nil)
+ make-backup-files nil
+ ring-bell-function 'ignore)
 
 (setq-default
  indent-tabs-mode nil
