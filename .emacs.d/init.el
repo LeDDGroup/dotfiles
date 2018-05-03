@@ -1,6 +1,13 @@
 ;;; package --- Summary
 ;;; Commentary:
 ;;; Code:
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (require 'setup)
@@ -237,6 +244,7 @@
    "fer" '(reload-config :which-key "Reload config File")
    "ff" '(find-file :which-key "Find file")
    "fp" '(neotree-projectile-action :which-key "Neotree project")
+   "fr" '(ivy-recentf :which-key "Recent file")
    "fs" '(save-buffer :which-key "Save file")
    "ft" '(neotree-toggle :which-key "Toggle neotree")
 
