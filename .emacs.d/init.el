@@ -169,7 +169,7 @@
 (use-package prettier-js
   :config
   (setq prettier-js-args '(
-                           "--config-precedence" "file-override"
+                           "--config-precedence" "prefer-file"
                            "--print-width" "100"
                            "--trailing-comma" "all"
                            )))
