@@ -35,5 +35,8 @@
     (company-mode +1))
   (setq company-tooltip-align-annotations t))
 
+(use-package ng2-mode
+  :hook typescript-mode)
+
 (provide 'typescript-layer)
 ;;; typescript-layer.el ends here

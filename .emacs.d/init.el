@@ -6,15 +6,7 @@
 (require 'setup)
 (require 'core)
 (require 'themes)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (flx counsel-projectile counsel evil pug-mode npm-mode yaml-mode tabbar magit evil-escape haml-mode restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
+(require 'init-tabbar)
 
 (set-face-attribute 'default nil
                     :family "Source Code Pro"
@@ -23,6 +15,8 @@
                     :width 'normal)
 
 (load-theme 'wombat t)
+
+(setq evil-want-C-u-scroll t)
 
 (setq vc-follow-symlinks t)
 
@@ -40,31 +34,6 @@
   :mode "\\.haml\\'")
 
 (use-package diminish)
-
-(use-package tabbar
-  :config
-  (setq buffers-index ())
-  (defun tabbar-kill-current-buffer ()
-    (interactive)
-    (setq buffers-index (delete (buffer-name) buffers-index))
-    (kill-current-buffer))
-  (defun goToBuffer (bufferIndex)
-    (interactive)
-    (switch-to-buffer (nth bufferIndex (reverse buffers-index))))
-  (defun prune (bufferIndex)
-    (interactive)
-    (switch-to-buffer (nth bufferIndex (reverse buffers-index))))
-  (defun my-tabbar-buffer-groups ()
-    ;; (setq-local buffers-index ())
-    (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
-                ((eq major-mode 'dired-mode) "emacs")
-                ((string-equal "magit" (substring (buffer-name) 0 5)) "magit")
-                (t (progn
-                     ;; (print (buffer-name) t)
-                     (add-to-list 'buffers-index (buffer-name))
-                     "user")))))
-
-  (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups))
 
 (use-package nlinum
   :config
@@ -194,9 +163,11 @@
   :commands (npm-mode))
 
 (use-package general
-  :init
-  (message "general")
   :config
+  (general-create-definer my-leader-def
+    :states '(normal visual insert emacs)
+    :prefix "SPC"
+    :non-normal-prefix "C-SPC")
   (mapc (lambda (i)
           (fset (intern (concat "goToBuffer" (number-to-string i)))
                 (eval `(lambda ()
@@ -207,10 +178,7 @@
     ",," 'with-editor-finish
     ",k" 'with-editor-cancel)
   (general-define-key
-   "C-S-t" 'open-scratch-buffer
-   "C-q" 'tabbar-kill-current-buffer
-   "C-<tab>" 'tabbar-forward-tab
-   "<C-S-iso-lefttab>" 'tabbar-backward-tab)
+   "C-S-t" 'open-scratch-buffer)
   (general-define-key
    :keymaps 'projectile-command-map
    "t" 'neotree-projectile-action)
@@ -219,6 +187,7 @@
    "C-h" 'ivy-backward-kill-word
    "C-j" 'ivy-next-line
    "C-k" 'ivy-previous-line)
+
   (general-define-key
    :states '(normal visual insert emacs)
    :prefix "SPC"
@@ -319,11 +288,7 @@
    "tmc" '(company-mode :which-key "Company")
    "tmf" '(flycheck-mode :which-key "Flycheck")
    "tmp" '(prettier-js-mode :which-key "Prettier js")
-   "tmt" '(tabbar-mode :which-key "Tabbar")
    "tr" '(tide-rename-symbol :which-key "rename")
-   "<tab>"  '(:ignore t :which-key "Tabbar")
-   "<tab>n" '(tabbar-forward-group :which-key "Tabbar forward group")
-   "<tab>p" '(tabbar-backward-group :which-key "Tabbar backward group")
 
    ;; Window
 
@@ -339,6 +304,7 @@
    "wl" '(evil-window-right :which-key "Right")
    "ws" '(evil-window-split :which-key "Horizontal split")
    "wv" '(evil-window-vsplit :which-key "Vertical split")
+   "ww" '(evil-window-next :which-key "Next Window")
    ))
 
 (setq auto-mode-alist (append '(("\\.js$" . typescript-mode)) auto-mode-alist))
@@ -348,11 +314,12 @@
 (add-hook 'web-mode-hook 'prettier-js-mode)
 (setq prettier-js-show-errors 'echo)
 
-(tabbar-mode)
 (require 'utils "~/.emacs.d/layers/core.el")
 (require 'spacemacs "~/.emacs.d/layers/spacemacs.el")
 (require 'typescript-layer "~/.emacs.d/layers/typescript-layer.el")
 (require 'git-layer "~/.emacs.d/layers/git-layer.el")
+
+(tabbar-mode)
 
 ;;; init.el ends here
 (custom-set-faces
