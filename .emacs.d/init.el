@@ -5,6 +5,7 @@
 
 (require 'setup)
 (require 'core)
+(require 'themes)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -13,14 +14,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (npm-mode yaml-mode tabbar magit evil-escape haml-mode restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl counsel-projectile counsel ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+    (counsel-projectile counsel evil pug-mode npm-mode yaml-mode tabbar magit evil-escape haml-mode restclient git-timemachine exec-path-from-shell diminish benchmark-init flycheck add-node-modules-path a prettier-js diff-hl ivy tide company zenburn-theme which-key use-package projectile nlinum neotree golden-ratio general fiplr evil-magit evil-leader all-the-icons ag))))
 
 (set-face-attribute 'default nil
                     :family "Source Code Pro"
@@ -28,10 +22,9 @@
                     :weight 'normal
                     :width 'normal)
 
+(load-theme 'wombat t)
 
 (setq vc-follow-symlinks t)
-
-(setq evil-want-C-u-scroll t)
 
 (use-package benchmark-init
   :config
@@ -83,6 +76,7 @@
 
 (use-package evil
   :config
+  (setq evil-want-C-u-scroll t)
   (defun evil-backward ()
     (interactive)
     (evil-delete-backward-char 1 1)
@@ -137,9 +131,6 @@
   (evil-define-key 'normal neotree-mode-map (kbd "|") 'neotree-enter-vertical-split)
   )
 
-(use-package zenburn-theme
-  :config
-  (load-theme 'zenburn t))
 
 (use-package projectile
   :diminish
@@ -179,8 +170,7 @@
                            "--config-precedence" "file-override"
                            "--print-width" "100"
                            "--trailing-comma" "all"
-                           ))
-  )
+                           )))
 
 (use-package restclient
   :commands (restclient-mode))
@@ -188,7 +178,7 @@
 (use-package add-node-modules-path)
 
 (use-package exec-path-from-shell
-  :commands (shell-mode)
+  :hook shell-mode
   :config
   (exec-path-from-shell-initialize))
 
@@ -318,7 +308,11 @@
 
    "s"  '(:ignore t :which-key "Search")
    "ss" '(swiper :which-key "swiper")
+
+   ;; Toggle
+
    "t"  '(:ignore t :which-key "Toggle")
+   "tt"  'load-theme
    "tm"  '(:ignore t :which-key "Mode")
    "tmc" '(company-mode :which-key "Company")
    "tmf" '(flycheck-mode :which-key "Flycheck")
@@ -359,3 +353,9 @@
 (require 'git-layer "~/.emacs.d/layers/git-layer.el")
 
 ;;; init.el ends here
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

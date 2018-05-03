@@ -6,8 +6,12 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 
+(show-paren-mode)
+(electric-pair-mode)
+
 (setq
  auto-save-default nil
+ debug-on-error t
  inhibit-startup-screen t
  initial-scratch-message nil
  ring-bell-function 'ignore
