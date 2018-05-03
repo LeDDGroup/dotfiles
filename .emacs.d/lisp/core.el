@@ -16,6 +16,7 @@
  inhibit-startup-screen t
  initial-scratch-message nil
  make-backup-files nil
+ custom-file (expand-file-name "custom.el" user-emacs-directory)
  ring-bell-function 'ignore)
 
 (setq-default
@@ -25,6 +26,8 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+(load custom-file 'noerror)
 
 (provide 'core)
 ;;; core.el ends here
