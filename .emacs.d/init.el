@@ -23,8 +23,6 @@
 
 (load-theme 'wombat t)
 
-(setq evil-want-C-u-scroll t)
-
 (setq vc-follow-symlinks t)
 
 (use-package benchmark-init
@@ -51,8 +49,9 @@
   (which-key-mode))
 
 (use-package evil
-  :config
+  :init
   (setq evil-want-C-u-scroll t)
+  :config
   (defun evil-backward ()
     (interactive)
     (evil-delete-backward-char 1 1)
@@ -196,6 +195,9 @@
    "C-k" 'ivy-previous-line)
 
   (general-define-key
+   :states '(visual)
+   ",," 'comment-region)
+  (general-define-key
    :states '(normal visual insert emacs)
    :prefix "SPC"
    :non-normal-prefix "C-SPC"
@@ -327,8 +329,6 @@
 (require 'typescript-layer "~/.emacs.d/layers/typescript-layer.el")
 (require 'git-layer "~/.emacs.d/layers/git-layer.el")
 
-(tabbar-mode)
-
 ;;; init.el ends here
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -336,3 +336,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (diff-hl git-timemachine evil-magit magit ng2-mode tide general npm-mode evil-escape exec-path-from-shell add-node-modules-path restclient prettier-js counsel-projectile counsel ivy flx company flycheck projectile neotree all-the-icons golden-ratio evil which-key nlinum diminish haml-mode pug-mode yaml-mode benchmark-init tabbar zenburn-theme use-package))))
