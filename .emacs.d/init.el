@@ -119,6 +119,7 @@
   :diminish
   :hook (prog-mode . flycheck-mode)
   :config
+  (setq flycheck-emacs-lisp-load-path 'inherit)
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
 
 (use-package company
@@ -137,13 +138,16 @@
   (setq enable-recursive-minibuffers t))
 
 (use-package counsel
-  :diminish
+  :after (general)
+  :commands (counsel-mode)
   :config
-  (counsel-mode t))
+  (my-leader-def
+    ":" 'counsel-M-x)
+  :diminish)
 
 (use-package counsel-projectile
-  :config
-  (counsel-projectile-mode t))
+  :after (counsel)
+  :commands counsel-projectile-mode)
 
 (use-package prettier-js
   :config
@@ -173,7 +177,10 @@
   :commands (npm-mode))
 
 (use-package general
+  :init
+  (message "g-init")
   :config
+  (message "g-config")
   (general-create-definer my-leader-def
     :states '(normal visual insert emacs)
     :prefix "SPC"
@@ -329,3 +336,6 @@
 (require 'spacemacs "~/.emacs.d/layers/spacemacs.el")
 (require 'typescript-layer "~/.emacs.d/layers/typescript-layer.el")
 (require 'git-layer "~/.emacs.d/layers/git-layer.el")
+
+(counsel-mode)
+(counsel-projectile-mode)
