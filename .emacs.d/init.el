@@ -13,8 +13,14 @@
                     :weight 'normal
                     :width 'normal)
 
-
 (setq vc-follow-symlinks t)
+
+(use-package evil-commentary
+  :commands (evil-commentary)
+  :after (general)
+  :config
+  (my-leader-def
+    ";" 'evil-commentary))
 
 (use-package benchmark-init
   :config
@@ -190,10 +196,7 @@
   (general-define-key
    :states '(visual)
    ",," 'comment-region)
-  (general-define-key
-   :states '(normal visual insert emacs)
-   :prefix "SPC"
-   :non-normal-prefix "C-SPC"
+  (my-leader-def
    ":" 'evil-ex
    ";" '(comment-line :which-key "Comment line/lines")
    "SPC" `(execute-extended-command :which-key "Run command")
