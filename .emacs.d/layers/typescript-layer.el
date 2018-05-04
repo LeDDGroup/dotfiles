@@ -31,13 +31,9 @@
     (company-mode +1))
   (setq company-tooltip-align-annotations t))
 
-(use-package ng2-mode
-  :hook typescript-mode)
-
 (setq auto-mode-alist (append '(("\\.js$" . typescript-mode)) auto-mode-alist))
 (setq auto-mode-alist (append '(("\\.jsx$" . typescript-mode)) auto-mode-alist))
 (setq auto-mode-alist (append '(("\\.tsx$" . typescript-mode)) auto-mode-alist))
-(setq auto-mode-alist (append '(("\\.http$" . restclient-mode)) auto-mode-alist))
 
 (provide 'typescript-layer)
 ;;; typescript-layer.el ends here

@@ -8,6 +8,8 @@
 (use-package restclient
   :commands (restclient-mode))
 
+(setq auto-mode-alist (append '(("\\.http$" . restclient-mode)) auto-mode-alist))
+
 (use-package npm-mode
   :commands (npm-mode))
 
