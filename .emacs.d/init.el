@@ -22,6 +22,11 @@
   (my-leader-def
     ";" 'evil-commentary))
 
+(use-package command-log-mode
+  :commands (clm/open-command-log-buffer)
+  :config
+  (command-log-mode))
+
 (use-package benchmark-init
   :config
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
