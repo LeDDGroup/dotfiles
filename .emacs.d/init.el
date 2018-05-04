@@ -15,6 +15,3 @@
 (require 'spacemacs)
 (require 'typescript-layer)
 (require 'git-layer)
-
-(counsel-mode)
-(counsel-projectile-mode)

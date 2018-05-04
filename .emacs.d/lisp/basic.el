@@ -32,9 +32,13 @@
   (setq enable-recursive-minibuffers t))
 
 (use-package counsel
+  :config
+  (counsel-mode)
   :diminish)
 
-(use-package counsel-projectile)
+(use-package counsel-projectile
+  :config
+  (counsel-projectile-mode))
 
 (use-package nlinum
   :config
