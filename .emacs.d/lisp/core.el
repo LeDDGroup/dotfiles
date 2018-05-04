@@ -5,7 +5,7 @@
 (show-paren-mode)
 (electric-pair-mode)
 
-(setq
+(setq-default
  auto-save-default nil
  custom-file (expand-file-name "custom.el" user-emacs-directory)
  debug-on-error t
