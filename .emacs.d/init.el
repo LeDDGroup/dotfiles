@@ -19,14 +19,6 @@
 
 (setq vc-follow-symlinks t)
 
-(use-package yaml-mode
-  :mode "\\.yml\\'")
-
-(use-package pug-mode
-  :mode "\\.pug\\'")
-
-(use-package haml-mode
-  :mode "\\.haml\\'")
 
 (use-package all-the-icons
   :commands (neotree-toggle))
