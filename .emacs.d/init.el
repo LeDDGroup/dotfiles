@@ -7,7 +7,6 @@
 (require 'core)
 (require 'basic)
 (require 'others)
-(require 'themes)
 
 (add-to-list 'load-path (expand-file-name "layers" user-emacs-directory))
 
