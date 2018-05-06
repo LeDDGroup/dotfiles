@@ -7,11 +7,11 @@
 (require 'core)
 (require 'basic)
 (require 'others)
+(require 'neotree-layer)
 
 (add-to-list 'load-path (expand-file-name "layers" user-emacs-directory))
 
 (require 'utils)
-(require 'spacemacs)
 (require 'typescript-layer)
 (require 'git-layer)
 (require 'web-layer)
