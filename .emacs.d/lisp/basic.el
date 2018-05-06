@@ -213,8 +213,6 @@
    "ww" '(evil-window-next :which-key "Next Window")
    ))
 
-(provide 'init-general)
-
 (use-package evil-commentary
   :after (general)
   :commands (evil-commentary)
