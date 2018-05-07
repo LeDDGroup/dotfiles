@@ -1,3 +1,9 @@
+(defun fix-errors-with-tslint ()
+  "Fix errors in current file with tslint and revert buffer"
+  (interactive)
+  (shell-command-to-string (format "tslint --fix %s" buffer-file-name))
+  (revert-buffer-no-confirm))
+
 (use-package tide
   :diminish
   :hook (typescript-mode . setup-tide-mode)
@@ -15,6 +21,7 @@
    "g" '(tide-jump-to-definition :which-key "jump to definition")
    "r" '(tide-rename-symbol :which-key "rename var")
    "s" '(tide-restart-server :which-key "restart server")
+   "t" '(fix-errors-with-tslint :which-key "fix errors with tslint")
    )
   :config
   (defun setup-tide-mode ()
