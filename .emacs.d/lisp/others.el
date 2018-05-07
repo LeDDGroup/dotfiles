@@ -10,15 +10,6 @@
 
 (setq auto-mode-alist (append '(("\\.http$" . restclient-mode)) auto-mode-alist))
 
-(use-package yaml-mode
-  :mode "\\.yml\\'")
-
-(use-package pug-mode
-  :mode "\\.pug\\'")
-
-(use-package haml-mode
-  :mode "\\.haml\\'")
-
 (use-package command-log-mode
   :commands (clm/open-command-log-buffer)
   :config

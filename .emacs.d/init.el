@@ -15,3 +15,4 @@
 (require 'spacemacs)
 (require 'typescript-layer)
 (require 'git-layer)
+(require 'web-layer)

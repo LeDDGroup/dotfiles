@@ -88,6 +88,8 @@
    :states '(visual)
    ",," 'comment-region)
   (my-leader-def
+   "+" 'text-scale-increase
+   "-" 'text-scale-decrease
    ":" 'counsel-M-x
    ";" '(comment-line :which-key "Comment line/lines")
    "SPC" `(execute-extended-command :which-key "Run command")
@@ -184,6 +186,8 @@
    "tu"  'undo-tree-visualize
    "tm"  '(:ignore t :which-key "Mode")
    "tn"  'neotree-toggle
+   "te"  'eshell
+   "ts"  'shell
    "tmc" '(company-mode :which-key "Company")
    "tmf" '(flycheck-mode :which-key "Flycheck")
    "tmp" '(prettier-js-mode :which-key "Prettier js")
