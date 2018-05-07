@@ -22,5 +22,10 @@
   (interactive)
   (find-file user-init-file))
 
+(defun revert-buffer-no-confirm ()
+  "Revert buffer without confirmation."
+  (interactive)
+  (revert-buffer :ignore-auto :noconfirm))
+
 (provide 'utils)
 ;;; core.el ends here
