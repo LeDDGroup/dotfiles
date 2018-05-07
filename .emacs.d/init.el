@@ -16,3 +16,4 @@
 (require 'typescript-layer)
 (require 'git-layer)
 (require 'web-layer)
+(require 'rails-layer)

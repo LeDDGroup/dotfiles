@@ -60,6 +60,9 @@
 
 (use-package general
   :config
+  (general-create-definer my-local-leader-def
+    :states '(normal visual insert emacs)
+    :prefix "SPC m")
   (general-create-definer my-leader-def
     :states '(normal visual insert emacs)
     :prefix "SPC"
