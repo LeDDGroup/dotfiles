@@ -8,6 +8,7 @@
 (require 'basic)
 (require 'others)
 (require 'neotree-layer)
+(require 'align)
 
 (add-to-list 'load-path (expand-file-name "layers" user-emacs-directory))
 
