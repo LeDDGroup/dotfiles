@@ -27,5 +27,11 @@
   (interactive)
   (revert-buffer :ignore-auto :noconfirm))
 
+(defun delete-current-file ()
+  "Delete current file"
+  (interactive)
+  (delete-file (buffer-file-name))
+  (kill-current-buffer))
+
 (provide 'utils)
 ;;; core.el ends here

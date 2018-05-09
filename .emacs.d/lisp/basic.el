@@ -133,6 +133,7 @@
    ;; File
 
    "f"  '(:ignore t :which-key "File")
+   "fD" '(delete-current-file :which-key "Delete Current File")
    "fe"  '(:ignore t :which-key "Emacs")
    "fed" '(edit-config :which-key "Config File")
    "fer" '(reload-config :which-key "Reload config File")
