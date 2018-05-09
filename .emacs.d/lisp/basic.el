@@ -202,6 +202,7 @@
    "xs"   '(:ignore t :which-key "Sort")
    "xs\""  '(sort-by-first-string :which-key "first string")
    "xsv"  '(sort-by-value :which-key "value")
+   "xsl" '(sort-lines :which-key "sort lines")
 
    ;; Window
 
