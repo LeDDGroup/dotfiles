@@ -5,6 +5,7 @@
 (require 'setup)
 (require 'init-benchmark)
 (require 'core)
+(require 'sort-utils)
 (require 'basic)
 (require 'others)
 (require 'neotree-layer)

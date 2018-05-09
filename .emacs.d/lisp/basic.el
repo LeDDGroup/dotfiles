@@ -196,6 +196,13 @@
    "tmp" '(prettier-js-mode :which-key "Prettier js")
    "tr"  '(tide-rename-symbol :which-key "rename")
 
+   ;; Text
+
+   "x"   '(:ignore t :which-key "Text")
+   "xs"   '(:ignore t :which-key "Sort")
+   "xs\""  '(sort-by-first-string :which-key "first string")
+   "xsv"  '(sort-by-value :which-key "value")
+
    ;; Window
 
    "w"  '(:ignore t :which-key "Window")
