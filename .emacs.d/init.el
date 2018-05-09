@@ -10,6 +10,8 @@
 (require 'neotree-layer)
 (require 'align-customs)
 
+(load custom-file 'noerror)
+
 (add-to-list 'load-path (expand-file-name "layers" user-emacs-directory))
 
 (require 'utils)

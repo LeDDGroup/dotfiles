@@ -24,8 +24,6 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(load custom-file 'noerror)
-
 (set-face-attribute 'default nil
                     :family "Source Code Pro"
                     :height 110
