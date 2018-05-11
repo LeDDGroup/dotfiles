@@ -58,6 +58,11 @@
     (evil-delete-backward-word))
   (evil-mode 1))
 
+(use-package evil-surround
+  :config
+  (global-evil-surround-mode 1)
+  (evil-define-key '(normal visual) evil-surround-mode-map "s" 'evil-surround-region))
+
 (use-package general
   :config
   (general-create-definer my-local-leader-def
