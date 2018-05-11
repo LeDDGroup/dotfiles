@@ -16,7 +16,6 @@
   (command-log-mode))
 
 (use-package prettier-js
-
   :hook (web-mode-hook . prettier-js-mode)
   :config
   (setq prettier-js-show-errors 'echo)
@@ -29,6 +28,12 @@
 (use-package tabbar
   :commands tabbar-mode
   :after (general)
+  :init
+  (my-leader-def
+    "tmt" '(tabbar-mode :which-key "Tabbar")
+    "<tab>"  '(:ignore t :which-key "Tabbar")
+    "<tab>n" '(tabbar-forward-group :which-key "Tabbar forward group")
+    "<tab>p" '(tabbar-backward-group :which-key "Tabbar backward group"))
   :config
   (setq buffers-index ())
   (defun tabbar-kill-current-buffer ()
@@ -52,11 +57,6 @@
                      "user")))))
 
   (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
-  (my-leader-def
-    "tmt" '(tabbar-mode :which-key "Tabbar")
-    "<tab>"  '(:ignore t :which-key "Tabbar")
-    "<tab>n" '(tabbar-forward-group :which-key "Tabbar forward group")
-    "<tab>p" '(tabbar-backward-group :which-key "Tabbar backward group"))
   (general-define-key
    "C-q" 'tabbar-kill-current-buffer
    "C-<tab>" 'tabbar-forward-tab
