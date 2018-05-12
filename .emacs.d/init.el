@@ -1,32 +1,31 @@
 (package-initialize)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "layers" user-emacs-directory))
 
 (load "setup")
 (load "init-benchmark")
 (load "core")
 
 (defun add-layer (layer)
-  (load (concat "layers/" layer "/packages") 'noerror)
-  (load (concat "layers/" layer "/funcs") 'noeror)
-  (load (concat "layers/" layer "/config") 'noerror)
-  (load (concat "layers/" layer "/keybindings") 'noerror))
+  (load (concat layer "/packages") 'noerror)
+  (load (concat layer "/funcs") 'noeror)
+  (load (concat layer "/config") 'noerror)
+  (load (concat layer "/keybindings") 'noerror))
 
 (defun use-layers (layers)
   (dolist (layer layers)
     (add-layer (symbol-name layer))))
 
-(use-layers '(basic))
+(use-layers '(basic
+              git
+              rails))
 
 (require 'sort-utils)
 (require 'basic)
 (require 'others)
 (require 'align-customs)
 
-;; (add-to-list 'load-path (expand-file-name "layers" user-emacs-directory))
-
-;; (require 'utils)
-;; (require 'typescript-layer)
-;; (require 'git-layer)
-;; (require 'web-layer)
-;; (require 'rails-layer)
+(require 'utils)
+(require 'typescript-layer)
+(require 'web-layer)
