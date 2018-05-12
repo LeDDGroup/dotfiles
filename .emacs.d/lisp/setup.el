@@ -1,6 +1,3 @@
-;;; package --- Summary
-;;; Commentary:
-;;; Code:
 (require 'package)
 
 (setq package-enable-at-startup nil)
@@ -18,6 +15,3 @@
 (setq
  use-package-always-ensure t
  use-package-compute-statistics t)
-
-(provide 'setup)
-;;; setup.el ends here

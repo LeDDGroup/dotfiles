@@ -2,21 +2,21 @@
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-(require 'setup)
-(require 'init-benchmark)
-(require 'core)
+(load "setup")
+(load "init-benchmark")
+(load "core")
+
+(basic-layer)
+
 (require 'sort-utils)
 (require 'basic)
 (require 'others)
-(require 'neotree-layer)
 (require 'align-customs)
 
-(load custom-file 'noerror)
+;; (add-to-list 'load-path (expand-file-name "layers" user-emacs-directory))
 
-(add-to-list 'load-path (expand-file-name "layers" user-emacs-directory))
-
-(require 'utils)
-(require 'typescript-layer)
-(require 'git-layer)
-(require 'web-layer)
-(require 'rails-layer)
+;; (require 'utils)
+;; (require 'typescript-layer)
+;; (require 'git-layer)
+;; (require 'web-layer)
+;; (require 'rails-layer)

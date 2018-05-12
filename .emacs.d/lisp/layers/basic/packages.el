@@ -1,3 +1,98 @@
+(use-package which-key
+  :config
+  (which-key-mode))
+
+(use-package evil
+  :init
+  (setq evil-want-C-u-scroll t)
+  :config
+  (evil-mode 1))
+
+(use-package evil-surround
+  :config
+  (global-evil-surround-mode 1)
+  (evil-define-key '(normal visual) evil-surround-mode-map "s" 'evil-surround-region))
+
+(use-package evil-commentary
+  :commands evil-commentary
+  :config
+  (my-leader-def
+    ";" 'evil-commentary))
+
+(use-package evil-escape
+  :config
+  (setq-default evil-escape-key-sequence "fd")
+  (setq-default evil-escape-delay 0.1)
+  (evil-escape-mode))
+
+(use-package general
+  :config
+  (general-create-definer my-local-leader-def
+    :states '(normal visual emacs)
+    :prefix "SPC m")
+  (general-create-definer my-leader-def
+    :states '(normal visual insert emacs)
+    :prefix "SPC"
+    :non-normal-prefix "C-SPC"))
+
+(use-package company
+  :diminish
+  :hook (prog-mode . company-mode))
+
+(use-package flx)
+
+(use-package ivy
+  :diminish
+  :config
+
+  ;; keybindings
+  (general-define-key
+   :keymaps 'ivy-minibuffer-map
+   "C-h" 'ivy-backward-kill-word
+   "C-j" 'ivy-next-line
+   "C-k" 'ivy-previous-line)
+
+  ;; variables
+  (setq ivy-use-selectable-prompt t
+        ivy-re-builders-alist '((t . ivy--regex-fuzzy))
+        ivy-use-virtual-buffers t
+        enable-recursive-minibuffers t)
+
+  (ivy-mode 1))
+
+(use-package counsel
+  :config
+  (counsel-mode)
+  :diminish)
+
+(use-package counsel-projectile
+  :config
+  (counsel-projectile-mode))
+
+(use-package nlinum
+  :config
+  (global-nlinum-mode 1))
+
+
+(use-package diminish)
+
+(use-package undo-tree
+  :commands undo-tree-mode
+  :diminish)
+
+(use-package projectile
+  :diminish
+  :config
+  (setq projectile-completion-system 'ivy)
+  (projectile-mode))
+
+(use-package flycheck
+  :diminish
+  :hook (prog-mode . flycheck-mode)
+  :config
+  (setq flycheck-emacs-lisp-load-path 'inherit)
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+
 (use-package neotree
   :commands (neotree-projectile-action neotree-toggle)
   :config
