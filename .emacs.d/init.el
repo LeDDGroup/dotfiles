@@ -18,6 +18,7 @@
     (add-layer (symbol-name layer))))
 
 (use-layers '(basic
+              typescript
               git
               rails))
 
@@ -27,5 +28,4 @@
 (require 'align-customs)
 
 (require 'utils)
-(require 'typescript-layer)
 (require 'web-layer)
