@@ -10,15 +10,5 @@
 ;;    :keymaps 'projectile-command-map
 ;;    "t" 'neotree-projectile-action))
 
-(use-package golden-ratio
-  :diminish
-  :config
-  (setq golden-ratio-extra-commands
-        (append golden-ratio-extra-commands
-                '(evil-window-left
-                  evil-window-right
-                  evil-window-up
-                  evil-window-down)))
-  (golden-ratio-mode 1))
 
 (provide 'basic)
