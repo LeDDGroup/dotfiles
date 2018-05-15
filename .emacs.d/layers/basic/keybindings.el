@@ -108,6 +108,7 @@
   "wj" '(evil-window-down :which-key "Down")
   "wk" '(evil-window-up :which-key "Up")
   "wl" '(evil-window-right :which-key "Right")
+  "wm" '(delete-other-windows :which-key "Delete other windows")
   "ws" '(evil-window-split :which-key "Horizontal split")
   "wv" '(evil-window-vsplit :which-key "Vertical split")
   "ww" '(evil-window-next :which-key "Next Window"))
