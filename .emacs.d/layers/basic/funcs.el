@@ -68,3 +68,19 @@ const a = 5;
   "Sort region by first string wrapped in \"\""
   (interactive "r")
   (sort-regexp-fields nil "^.*$" "\".*\"" begin end))
+
+(defun kill-current-buffer ()
+  "Kill current buffer."
+  (interactive)
+  (kill-buffer (current-buffer)))
+
+(defun revert-buffer-no-confirm ()
+  "Revert buffer without confirmation."
+  (interactive)
+  (revert-buffer :ignore-auto :noconfirm))
+
+(defun delete-current-file ()
+  "Delete current file"
+  (interactive)
+  (delete-file (buffer-file-name))
+  (kill-current-buffer))
