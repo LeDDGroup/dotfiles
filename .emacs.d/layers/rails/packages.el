@@ -8,5 +8,3 @@
     "c" 'projectile-rails-find-controller
     "v" 'projectile-rails-find-view
     "g" 'projectile-rails-mode-goto-map))
-
-(provide 'rails-layer)

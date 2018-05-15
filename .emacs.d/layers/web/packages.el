@@ -9,5 +9,3 @@
 
 (use-package haml-mode
   :mode "\\.haml\\'")
-
-(provide 'web-layer)

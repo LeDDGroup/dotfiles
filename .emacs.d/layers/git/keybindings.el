@@ -1,0 +1,11 @@
+(my-leader-def
+  "g"  '(:ignore t :which-key "Git")
+  "gS" '(magit-stage-file :which-key "git stage")
+  "gU" '(magit-unstage-file :which-key "git unstage")
+  "gb" '(magit-blame :which-key "git blame")
+  "gc"  '(:ignore t :which-key "In Code")
+  "gcn" '(diff-hl-next-hunk :which-key "next hunk")
+  "gcp" '(diff-hl-previous-hunk :which-key "previous hunk")
+  "gcr" '(diff-hl-revert-hunk :which-key "revert hunk")
+  "gs" '(magit-status :which-key "git status")
+  "gt" '(git-timemachine :which-key "git time machine"))

@@ -8,6 +8,7 @@
 (setq-default
  auto-save-default nil
  custom-file (expand-file-name "custom.el" user-emacs-directory)
+ autoload-file (expand-file-name "loaddefs.el" user-emacs-directory)
  debug-on-error t
  gc-cons-threshold 40000000
  inhibit-startup-screen t
@@ -30,4 +31,5 @@
                     :weight 'normal
                     :width 'normal)
 
-(provide 'core)
+(load custom-file 'noerror)
+(load autoload-file 'noerror)
