@@ -23,7 +23,6 @@
               rails))
 
 (require 'sort-utils)
-(require 'basic)
 (require 'others)
 (require 'align-customs)
 
