@@ -19,9 +19,8 @@
 
 (use-layers '(basic
               typescript
+              web
               git
               rails))
 
 (require 'others)
-
-(require 'web-layer)
