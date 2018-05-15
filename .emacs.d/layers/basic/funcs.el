@@ -50,3 +50,21 @@
   (interactive "r")
   (align-regexp begin end
                 (rx (group (zero-or-more (syntax whitespace))) ")") 1 1 ))
+
+;; Sort
+(defun sort-by-value (begin end)
+  "Sort region by value
+eg:
+const a = 5;
+const b = 4;
+
+const b = 4;
+const a = 5;
+"
+  (interactive "r")
+  (sort-regexp-fields nil "^.*$" "=.*;$" begin end))
+
+(defun sort-by-first-string (begin end)
+  "Sort region by first string wrapped in \"\""
+  (interactive "r")
+  (sort-regexp-fields nil "^.*$" "\".*\"" begin end))

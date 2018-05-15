@@ -22,7 +22,6 @@
               git
               rails))
 
-(require 'sort-utils)
 (require 'others)
 
 (require 'utils)
