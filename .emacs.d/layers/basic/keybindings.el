@@ -90,6 +90,13 @@
   "xsv"  '(sort-by-value :which-key "value")
   "xsl" '(sort-lines :which-key "sort lines")
 
+  ;; Align
+  "a," 'align-to-comma-before
+  "a=" 'align-to-equals
+  "a(" 'align-to-paren-open
+  "a)" 'align-to-paren-close
+  "a:" 'align-to-colon
+
   ;; Window
   "w"  '(:ignore t :which-key "Window")
   "wH" '(evil-window-move-far-left :which-key "Move left")

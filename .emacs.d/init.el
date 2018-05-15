@@ -24,7 +24,6 @@
 
 (require 'sort-utils)
 (require 'others)
-(require 'align-customs)
 
 (require 'utils)
 (require 'web-layer)
