@@ -9,8 +9,8 @@
   (evil-mode 1))
 
 (use-package evil-surround
+  :hook (prog-mode . evil-surround-mode)
   :config
-  (global-evil-surround-mode 1)
   (evil-define-key '(normal visual) evil-surround-mode-map "s" 'evil-surround-region))
 
 (use-package evil-commentary
