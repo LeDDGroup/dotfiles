@@ -19,6 +19,7 @@
 
 (use-layers '(basic
               typescript
+              floobits
               web
               git
               rails))
