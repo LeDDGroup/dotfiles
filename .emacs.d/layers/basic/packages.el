@@ -37,6 +37,9 @@
 
 (use-package company
   :diminish
+  :config
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous)
   :hook (prog-mode . company-mode))
 
 (use-package flx)
