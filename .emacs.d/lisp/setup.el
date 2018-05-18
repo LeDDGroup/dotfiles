@@ -16,3 +16,13 @@
 (setq
  use-package-always-ensure t
  use-package-compute-statistics t)
+
+(defun add-layer (layer)
+  (load (concat layer "/packages") 'noerror)
+  (load (concat layer "/funcs") 'noeror)
+  (load (concat layer "/config") 'noerror)
+  (load (concat layer "/keybindings") 'noerror))
+
+(defun use-layers (layers)
+  (dolist (layer layers)
+    (add-layer (symbol-name layer))))
