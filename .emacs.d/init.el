@@ -7,16 +7,6 @@
 (load "init-benchmark")
 (load "core")
 
-(defun add-layer (layer)
-  (load (concat layer "/packages") 'noerror)
-  (load (concat layer "/funcs") 'noeror)
-  (load (concat layer "/config") 'noerror)
-  (load (concat layer "/keybindings") 'noerror))
-
-(defun use-layers (layers)
-  (dolist (layer layers)
-    (add-layer (symbol-name layer))))
-
 (use-layers '(basic
               typescript
               floobits
