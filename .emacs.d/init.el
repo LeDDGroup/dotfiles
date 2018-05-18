@@ -7,11 +7,6 @@
 (load "init-benchmark")
 (load "core")
 
-(use-layers '(basic
-              typescript
-              floobits
-              web
-              git
-              rails))
+(use-layers '(basic))
 
 (require 'others)
