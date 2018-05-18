@@ -10,3 +10,5 @@
 (use-layers '(basic))
 
 (require 'others)
+
+(load custom-file 'noerror)

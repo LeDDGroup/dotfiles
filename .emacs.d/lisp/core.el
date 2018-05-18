@@ -31,5 +31,4 @@
                     :weight 'normal
                     :width 'normal)
 
-(load custom-file 'noerror)
 (load autoload-file 'noerror)
