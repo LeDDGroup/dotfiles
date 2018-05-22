@@ -181,3 +181,5 @@
   (evil-define-key 'normal neotree-mode-map (kbd "s") 'neotree-hidden-file-toggle)
   (evil-define-key 'normal neotree-mode-map (kbd "y") 'neotree-copy-filepath-to-yank-ring)
   (evil-define-key 'normal neotree-mode-map (kbd "|") 'neotree-enter-vertical-split))
+
+(add-hook 'prog-mode-hook 'hs-minor-mode)
