@@ -84,3 +84,8 @@ const a = 5;
   (interactive)
   (delete-file (buffer-file-name))
   (kill-current-buffer))
+
+(defun kill-other-buffers ()
+  "Kill all other buffers."
+  (interactive)
+  (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))

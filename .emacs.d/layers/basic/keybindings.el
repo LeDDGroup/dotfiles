@@ -18,6 +18,7 @@
   "b"  '(:ignore t :which-key "Buffer")
   "bb" 'ivy-switch-buffer
   "bd" '(kill-current-buffer :which-key "Kill buffer")
+  "bD" '(kill-other-buffers :which-key "Kill other buffers")
   "bn" '(next-buffer :which-key "Next buffer")
   "bp" '(previous-buffer :which-key "Previous buffer")
   "bs" '(open-scratch-buffer :which-key "Scratch buffer")
