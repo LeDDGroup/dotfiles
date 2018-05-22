@@ -135,3 +135,6 @@
   (evil-define-key 'normal neotree-mode-map (kbd "s") 'neotree-hidden-file-toggle)
   (evil-define-key 'normal neotree-mode-map (kbd "y") 'neotree-copy-filepath-to-yank-ring)
   (evil-define-key 'normal neotree-mode-map (kbd "|") 'neotree-enter-vertical-split)
+
+(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
