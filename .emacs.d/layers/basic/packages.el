@@ -123,7 +123,7 @@
               (when neo-auto-indent-point
                 (next-line)
                 (neo-point-auto-indent)))
-          (call-interactively 'neotree-enter)))))
+          (call-interactively 'custom-neotree-enter)))))
 
   (defun spacemacs/neotree-collapse ()
     "Collapse a neotree node."
@@ -153,8 +153,8 @@
 
   (defun custom-neotree-enter ()
     (interactive)
-    (neotree-enter)
-    (neotree-hide))
+    (call-interactively 'neotree-enter)
+    (call-interactively 'neotree-hide))
   (setq neo-window-fixed-size nil)
   (setq neo-smart-open nil)
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
