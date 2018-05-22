@@ -8,4 +8,8 @@
   "gcp" '(diff-hl-previous-hunk :which-key "previous hunk")
   "gcr" '(diff-hl-revert-hunk :which-key "revert hunk")
   "gs" '(magit-status :which-key "git status")
-  "gt" '(git-timemachine :which-key "git time machine"))
+  "gt" '(git-timemachine :which-key "git time machine")
+  "gl" '(git-link :which-key "link")
+  )
+
+(evil-define-key 'normal magit-mode-map (kbd "C") 'git-link-commit)

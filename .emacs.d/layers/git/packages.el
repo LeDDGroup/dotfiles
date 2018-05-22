@@ -12,3 +12,5 @@
 
 (use-package diff-hl
   :hook (prog-mode . diff-hl-mode))
+
+(use-package git-link)
