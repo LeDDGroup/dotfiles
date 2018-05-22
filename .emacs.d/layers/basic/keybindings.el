@@ -145,6 +145,7 @@
      ;; use the standard Dired bindings as a base
      (evil-make-overriding-map dired-mode-map 'normal t)
      (evil-define-key 'normal dired-mode-map
+       "c" 'my-dired-create-file
        "h" 'evil-backward-char
        "j" 'evil-next-line
        "k" 'evil-previous-line
