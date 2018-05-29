@@ -15,6 +15,7 @@
  initial-scratch-message nil
  make-backup-files nil
  ring-bell-function 'ignore
+ show-trailing-whitespace t
  vc-follow-symlinks t)
 
 (setq-default
