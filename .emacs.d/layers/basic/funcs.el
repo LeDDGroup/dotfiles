@@ -64,6 +64,11 @@ const a = 5;
   (interactive "r")
   (sort-regexp-fields nil "^.*$" "=.*;$" begin end))
 
+(defun sort-by-first-string-single (begin end)
+  "Sort region by first string wrapped in \"\""
+  (interactive "r")
+  (sort-regexp-fields nil "^.*$" "'.*'" begin end))
+
 (defun sort-by-first-string (begin end)
   "Sort region by first string wrapped in \"\""
   (interactive "r")

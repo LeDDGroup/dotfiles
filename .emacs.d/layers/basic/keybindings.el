@@ -88,6 +88,7 @@
   "x"   '(:ignore t :which-key "Text")
   "xs"   '(:ignore t :which-key "Sort")
   "xs\""  '(sort-by-first-string :which-key "first string")
+  "xs'"  '(sort-by-first-string-single :which-key "first string single")
   "xsv"  '(sort-by-value :which-key "value")
   "xsl" '(sort-lines :which-key "sort lines")
 
