@@ -1,3 +1,5 @@
+(use-package all-the-icons)
+
 (use-package which-key
   :config
   (which-key-mode))
