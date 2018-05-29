@@ -11,7 +11,7 @@
 (defun edit-config ()
   "Open 'user-init-file'"
   (interactive)
-  (find-file user-init-file))
+  (find-file custom-file))
 
 ;; Align
 (defun align-to-colon (begin end)
