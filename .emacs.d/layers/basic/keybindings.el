@@ -86,6 +86,8 @@
 
   ;; Text
   "x"   '(:ignore t :which-key "Text")
+  "xs"   '(:ignore t :which-key "delete")
+  "xdw" '(delete-trailing-whitespace :which-key "trailing whitespace")
   "xs"   '(:ignore t :which-key "Sort")
   "xs\""  '(sort-by-first-string :which-key "first string")
   "xs'"  '(sort-by-first-string-single :which-key "first string single")
