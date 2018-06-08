@@ -13,6 +13,8 @@
   "a"  '(:ignore t :which-key "Applications")
   "ac" '(calc :which-key "Calc")
   "ad" '(dired :which-key "Dired")
+  "aT" '(ansi-term-bash :which-key "Terminal")
+  "at" '(ansi-term-open-previous :which-key "Previous or new terminal")
 
   ;; Buffer
   "b"  '(:ignore t :which-key "Buffer")

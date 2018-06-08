@@ -116,3 +116,15 @@ If FILE already exists, signal an error."
     (when new
       (dired-add-file new)
       (dired-move-to-filename))))
+
+;; Terminal
+(defun ansi-term-bash ()
+  (interactive)
+  (ansi-term "/bin/bash" "ansi-term-bash"))
+
+(defun ansi-term-open-previous ()
+  (interactive)
+  (let ((buffer (get-buffer "*ansi-term-bash*")))
+    (if buffer
+        (switch-to-buffer buffer)
+      (call-interactively 'ansi-term-bash))))
