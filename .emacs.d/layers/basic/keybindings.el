@@ -6,7 +6,7 @@
   "+" 'text-scale-increase
   "-" 'text-scale-decrease
   ":" 'counsel-M-x
-  ";" '(comment-line :which-key "Comment line/lines")
+  ";" '(evil-commentary :which-key "Comment line/lines") ;
   "SPC" `(execute-extended-command :which-key "Run command")
 
   ;; Applications
