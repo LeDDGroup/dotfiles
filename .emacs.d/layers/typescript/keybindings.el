@@ -11,4 +11,5 @@
  "g" '(tide-jump-to-definition :which-key "jump to definition")
  "r" '(tide-rename-symbol :which-key "rename var")
  "s" '(tide-restart-server :which-key "restart server")
+ "f" '(format-with-prettier :which-key "format with prettier")
  "t" '(fix-errors-with-tslint :which-key "fix errors with tslint"))
